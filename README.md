@@ -1,4 +1,4 @@
-# MCM Chords
+# တေးဝိုင်း — TayWine
 
 A responsive Myanmar songbook containing 3,806 locally collected song entries. Each source arrangement remains a separate entry.
 
