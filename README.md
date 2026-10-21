@@ -1,4 +1,4 @@
-# ညှို့ — NYOH
+# တေးဝိုင်း — TayWine
 
 A responsive Myanmar songbook containing 3,806 locally collected song entries. Each source arrangement remains a separate entry.
 
@@ -31,6 +31,10 @@ Auto-scroll has a numeric 0.1–10× speed input, matching slider, 0.1× adjustm
 
 ## Discovery and artwork
 
-The library uses original song covers when available and bundled generic music photos otherwise. The source metadata enrichment reads artwork, video links, cumulative views and original publication dates from the existing MusiBurma song pages. Popularity is explicitly based on MusiBurma cumulative views, not NYOH visits. Trending picks select songs published in the past 90 days and sort by those cumulative views; this is not a live viral or growth-rate chart.
+The library uses original song covers when available and bundled generic music photos otherwise. The source metadata enrichment reads artwork, video links, cumulative views and original publication dates from the existing MusiBurma song pages. Popularity is explicitly based on MusiBurma cumulative views, not TayWine visits. Trending picks select songs published in the past 90 days and sort by those cumulative views; this is not a live viral or growth-rate chart.
 
 The home page also includes source-date ordering, conservative beginner-friendly open-chord selections, and a browser-local reading history with resume positions. `node finalize-discovery.cjs` recomputes beginner flags after rebuilding the catalog. See ARTWORK.md for fallback photo sources.
+
+## Practice mode
+
+Focus mode hides navigation and decorative media while preserving the reader controls. The chords-used panel follows transposition and opens a small accessible guitar-voicing diagram. Common open shapes plus movable major, minor, seventh, suspended, diminished-seventh, add9, power and sixth voicings are supported; unsupported chords explicitly show no diagram. Automated checks validate all generated voicings against their defining pitch classes. Some standard seventh voicings omit the optional fifth.
