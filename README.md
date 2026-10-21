@@ -22,3 +22,9 @@ The deployable site is the `dist` folder. No installation or build step is requi
 ## Artwork and listening
 
 18 source entries include original cover images and 17 have YouTube links. The listening room accepts validated YouTube video links, supports minimize/close, and offers a YouTube search when a match is unknown. Custom images and links are browser-local and do not change the shared catalog. Images are resized to 600 px before local storage. Closing the player unloads the video. Chord transposition does not change audio pitch.
+
+## Reader controls
+
+The video companion is 300 px wide on desktop and 216 px on phones, with link tools behind the edit button. The iframe remains at least 200 px high so its playback controls remain usable. Mobile navigation and action icons use inline SVG and need no icon font.
+
+Auto-scroll has a numeric 0.1–10× speed input, matching slider, 0.1× adjustment buttons and a reset to 1×. The chosen speed persists in the same browser and adjusts immediately during playback. 1× scrolls at 35 px/s. Pause, manual wheel/touch scrolling, navigating away, or hiding the page stops scrolling.
