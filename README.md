@@ -1,4 +1,4 @@
-# တေးဝိုင်း — TayWine
+# ညှို့ — NYOH
 
 A responsive Myanmar songbook containing 3,806 locally collected song entries. Each source arrangement remains a separate entry.
 
@@ -18,3 +18,7 @@ Run `node server.cjs` in this folder, then open http://127.0.0.1:4179.
 `node prepare-data.cjs` rebuilds the static catalog from the existing `chord-scraper/data` files. This does not scrape either website. Keep the source arrays in stable order to preserve song URLs and existing favorites.
 
 The deployable site is the `dist` folder. No installation or build step is required. Typography uses Google Fonts with local system fallbacks. Source data can contain incomplete credits or malformed chords, which are preserved as supplied.
+
+## Artwork and listening
+
+18 source entries include original cover images and 17 have YouTube links. The listening room accepts validated YouTube video links, supports minimize/close, and offers a YouTube search when a match is unknown. Custom images and links are browser-local and do not change the shared catalog. Images are resized to 600 px before local storage. Closing the player unloads the video. Chord transposition does not change audio pitch.
