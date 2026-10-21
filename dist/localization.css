@@ -1,0 +1,25 @@
+.language-switch{display:flex;align-items:center;gap:3px;padding:4px;border:1px solid var(--border);border-radius:9px;background:var(--paper);flex-shrink:0;box-shadow:0 1px 3px #263b2504}
+.language-globe{display:grid;place-items:center;width:25px;height:28px;color:var(--muted)}.language-globe svg{width:16px;height:16px}
+.language-switch button{display:grid;place-items:center;min-width:34px;min-height:29px;padding:4px 8px;border-radius:5px;font-size:10px;font-weight:500;line-height:1.7;color:var(--muted);transition:background-color .16s,color .16s,box-shadow .16s}
+.language-switch button.selected{background:#e5edda;color:#3e6130;box-shadow:0 1px 3px #263b2510}.language-switch button:not(.selected):hover{background:var(--bg);color:var(--ink)}.language-switch button:focus-visible{outline:2px solid #91ac71;outline-offset:2px}
+html[lang=en] .intro h1{font-size:clamp(29px,2.8vw,43px);line-height:1.3;letter-spacing:-1.3px;margin:19px 0 13px}
+html[lang=en] .intro p{font-size:12px;line-height:1.9;max-width:620px}
+html[lang=en] .hero h2{font-size:35px;line-height:1.4;margin:20px 0 13px;letter-spacing:-1px}
+html[lang=en] .hero p{font-size:11px;line-height:1.9}
+html[lang=en] .hero-copy>button{font-size:11px;min-height:40px}
+html[lang=en] .section-heading h2{line-height:1.6;font-size:22px;margin-top:8px;letter-spacing:-.6px}
+html[lang=en] .side-note h3{line-height:1.5;font-size:17px}
+html[lang=en] .reader-media h2{line-height:1.6;font-size:20px}
+html[lang=en] .reader-media p{font-size:12px;line-height:1.8}
+html[lang=en] .mood-card b{font-size:12px}html[lang=en] .mood-card small{font-size:9px;line-height:1.6}
+html[lang=en] .nav-item{font-size:12px}html[lang=en] .text-button{font-size:11px}
+html[lang=en] .reader-actions>button{font-size:11px}html[lang=en] .discovery-tabs button{font-size:11px}
+html[lang=en] .chart-description{font-size:11px;line-height:1.8}html[lang=en] #scroll-help{font-size:10px}
+html[lang=my] .reader-actions .tool-group>label{letter-spacing:0;font-size:8px}
+html[lang=my] .language-switch button[lang=my]{font-size:9px}
+body.dark .language-switch{background:#263427;border-color:#46563f}body.dark .language-switch button.selected{background:#516a40;color:#eef4e2}body.dark .language-switch button:not(.selected){color:#c6d1b9}
+@media(max-width:1150px){.header-right{gap:12px}.header-note{display:none}html[lang=en] .hero h2{font-size:31px}html[lang=en] .mood-card small{font-size:8px}}
+@media(max-width:850px){html[lang=en] .nav-item{font-size:0}html[lang=en] .mood-card b{font-size:11px}.language-globe{display:none}.language-switch{padding:3px}}
+@media(max-width:600px){header{gap:12px}.breadcrumb{display:none}.header-right{margin-left:auto;gap:9px}.language-switch{border-radius:8px;gap:2px;padding:3px}.language-switch button{min-height:29px;min-width:33px;padding:4px 8px;font-size:9px}.language-switch button[lang=my]{font-size:9px}html[lang=en] .intro h1{font-size:30px;line-height:1.3;letter-spacing:-.9px;margin:16px 0 13px}html[lang=en] .intro p{font-size:11px;line-height:1.9;max-width:320px}html[lang=en] .hero h2{font-size:26px;line-height:1.4;min-width:185px;margin:20px 0 13px}html[lang=en] .hero p{font-size:10px;min-width:180px}html[lang=en] .hero-copy>button{font-size:9px;min-height:35px;padding:9px 11px;gap:9px}html[lang=en] .section-heading h2{font-size:19px;line-height:1.6}html[lang=en] .mood-card b{font-size:10px}html[lang=en] .mood-card small{font-size:7px}html[lang=en] .nav-item{font-size:8px}html[lang=en] .text-button{font-size:9px}html[lang=en] .reader-media h2{font-size:17px}html[lang=en] .reader-media p{font-size:11px}html[lang=en] .reader-actions>button{font-size:10px}html[lang=en] .discovery-tabs button{font-size:10px}html[lang=en] .chart-description{font-size:10px}html[lang=en] #scroll-help{font-size:9px}html[lang=my] .reader-actions .reader-shuffle{white-space:normal;line-height:1.8}html[lang=my] .reader-actions #focus-toggle{font-size:9px}html[lang=en] .library-heading .text-button{max-width:110px;line-height:1.6}html[lang=my] .reader-actions .tool-group>label{font-size:8px;padding:0 3px}}
+@media(prefers-reduced-motion:reduce){.language-switch button{transition:none}}
+@media print{.language-switch{display:none!important}}

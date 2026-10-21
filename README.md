@@ -38,3 +38,9 @@ The home page also includes source-date ordering, conservative beginner-friendly
 ## Practice mode
 
 Focus mode hides navigation and decorative media while preserving the reader controls. The chords-used panel follows transposition and opens a small accessible guitar-voicing diagram. Common open shapes plus movable major, minor, seventh, suspended, diminished-seventh, add9, power and sixth voicings are supported; unsupported chords explicitly show no diagram. Automated checks validate all generated voicings against their defining pitch classes. Some standard seventh voicings omit the optional fifth.
+
+## Myanmar / English localization
+
+The header includes an EN / မြန်မာ switch. The preference is saved as `taywine-language` in the current browser; the default is Myanmar. Switching translates UI copy and accessible labels in place without reloading the song, clearing the query or restarting the video. New menus, dialogs, counts, statuses and toasts are translated as they appear. The document language and description follow the chosen interface language, while the lyric sheet retains its own content language.
+
+`dist/localization.js` owns the translation pairs, dynamic count/status templates and the small UI-only translation observer. Song titles, credits, lyric sheets and chord symbols are explicitly excluded. Add new copy pairs there when introducing interface text. Language-specific spacing is in `dist/localization.css`.
