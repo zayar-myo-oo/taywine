@@ -1,0 +1,4 @@
+const fs=require('fs');const catalog=JSON.parse(fs.readFileSync('dist/catalog.json','utf8'));
+const openChords=new Set(['C','D','Dm','E','Em','G','A','Am','A7','B7','C7','D7','E7','G7']);
+for(const s of catalog){const p=`dist/songs/${s.id}.json`,full=JSON.parse(fs.readFileSync(p,'utf8'));const chords=[...new Set([...full.chordpro.matchAll(/\[([^\]\n]+)\]/g)].map(m=>m[1].trim()).filter(c=>/^[A-G]/.test(c)))];s.chord_count=chords.length;s.beginner_friendly=chords.length>0&&chords.length<=5&&chords.every(c=>openChords.has(c));full.chord_count=s.chord_count;full.beginner_friendly=s.beginner_friendly;fs.writeFileSync(p,JSON.stringify(full))}
+fs.writeFileSync('dist/catalog.json',JSON.stringify(catalog));console.log(JSON.stringify({images:catalog.filter(s=>s.image_url).length,videos:catalog.filter(s=>s.youtube_url).length,sourceStats:catalog.filter(s=>s.source_views!==undefined).length,beginnerFriendly:catalog.filter(s=>s.beginner_friendly).length}));
