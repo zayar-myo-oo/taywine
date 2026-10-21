@@ -1,6 +1,6 @@
 /* Inline SVGs stay crisp and visible without any icon font or emoji support. */
 (() => {
- const paths={
+ const paths={print:'<path d="M7 8V3h10v5M7 17H3V9h18v8h-4"/><path d="M7 14h10v7H7z"/><path d="M17 11h1"/>',share:'<path d="M14 3h7v7M21 3 11 13"/><path d="M10 5H4v16h16v-6"/>',
   discover:'<path d="m12 3 9 9-9 9-9-9 9-9Z"/><path d="m15 9-2 4-4 2 2-4 4-2Z"/>',
   music:'<path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="3"/><ellipse cx="17" cy="16" rx="3" ry="3"/>',
   artists:'<circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 4 5v1"/>',
@@ -20,7 +20,7 @@
  window.NyohIcon=icon;
  const glyphs={'◈':'discover','♫':'music','♬':'music','♪':'music','♧':'artists','♡':'heart','♥':'heart','⚄':'dice','▶':'play','▷':'play','Ⅱ':'pause','⌕':'search','☀':'sun','✳':'sparkle','✦':'sparkle','✧':'sparkle','↗':'external','↙':'back','←':'back','↓':'down','＋':'plus','×':'close','◐':'theme'};
  const matches=/[◈♫♬♪♧♡♥⚄▶▷Ⅱ⌕☀✳✦✧↗↙←↓＋×◐]/g;
- function replaceText(node){const parent=node.parentElement;if(!parent||parent.closest('svg,script,style,#sheet,.song-title,.song-subtitle,.artist-cell,.pick-title,h1,h2,h3,#player-title,#player-artist,.player-footnote,.reader-source,.reader-artist,#toast'))return;const text=node.nodeValue;const standalone={'−':'minus','+':'plus','-':'minus'};let parts;
+ function replaceText(node){const parent=node.parentElement;if(!parent||parent.closest('svg,script,style,#sheet,.song-title,.song-subtitle,.artist-cell,.pick-title,h1,h2,h3,#player-title,#player-artist,.player-footnote,.reader-source,.reader-artist,.speed-number-wrap,.scroll-range-labels,.scroll-reset,#toast'))return;const text=node.nodeValue;const standalone={'−':'minus','+':'plus','-':'minus'};let parts;
   if(standalone[text.trim()]&&parent.closest('button'))parts=[icon(standalone[text.trim()])];
   else {matches.lastIndex=0;if(!matches.test(text))return;matches.lastIndex=0;parts=[];let at=0;for(const match of text.matchAll(matches)){if(match.index>at)parts.push(document.createTextNode(text.slice(at,match.index)));parts.push(icon(glyphs[match[0]]));at=match.index+match[0].length}if(at<text.length)parts.push(document.createTextNode(text.slice(at)))}
   const fragment=document.createDocumentFragment();for(const part of parts){if(typeof part==='string'){const template=document.createElement('template');template.innerHTML=part;fragment.append(template.content)}else fragment.append(part)}node.replaceWith(fragment);

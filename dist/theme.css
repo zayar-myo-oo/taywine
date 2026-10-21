@@ -1,0 +1,32 @@
+/* Dark surfaces get explicit foregrounds; pastel card colors never inherit white text. */
+body.dark{color-scheme:dark}
+body.dark .mood-card{filter:none;color:#f1f0e5;border-color:#5c6653}
+body.dark .mood-peach{background:#43392f;border-color:#665447}
+body.dark .mood-sage{background:#30402e;border-color:#506349}
+body.dark .mood-lilac{background:#3c3445;border-color:#60506d}
+body.dark .mood-card b{color:#f5f1e7}
+body.dark .mood-card small{color:#c9c9bc}
+body.dark .mood-card>span:last-child{color:#d3dcc3}
+body.dark .mood-peach .mood-icon{color:#efc79b}
+body.dark .mood-sage .mood-icon{color:#c2d6a7}
+body.dark .mood-lilac .mood-icon{color:#dac4ec}
+body.dark .side-note{background:#2d3b2d;border-color:#506047;color:#edf0e1}
+body.dark .side-note p,body.dark .side-note .tiny-label{color:#c4ceba}
+body.dark .side-note button{border-color:#526348;color:#e4edce}
+body.dark .mini-guitar{color:#708665}
+body.dark .bottom-banner{color:#e4ebd8}
+body.dark .bottom-banner p{color:#c0cbb2}
+body.dark .eyebrow,body.dark .reader-tag,body.dark .scroll-control-label{color:#b1c596}
+body.dark .breadcrumb,body.dark .header-note,body.dark .search-meta,body.dark .row-number,body.dark .table-head{color:#b4bfaa}
+body.dark .intro p,body.dark .song-subtitle,body.dark .artist-cell{color:#bcc7b0}
+body.dark .text-button,body.dark .scroll-reset,body.dark .player-links a{color:#c0d6a5}
+body.dark .chart-song-info>small,body.dark .chart-rank,body.dark .chart-open{color:#b5cc97}
+body.dark .chord{color:#c0db9c}
+body.dark .guitar-diagram{color:#a5b798}
+body.dark .guitar-diagram .finger-dot{fill:#b3d88d}
+body.dark .guitar-diagram text{fill:#d0d9c5}
+body.dark .image-upload-button{border-color:#586b4b;color:#e2ecd4}
+body.dark .discovery-tabs button.selected{background:#91ad7b;color:#152610}
+body.dark .scroll-speed-input>button,body.dark .speed-number-wrap,body.dark #scroll-speed{color:#eef0e4}
+body.dark #youtube-error{color:#f0b29d}
+body.dark .player-caption{color:#f1f3e7}
