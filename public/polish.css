@@ -85,3 +85,7 @@ button,a,select,input,label,[data-song],[data-artist]{touch-action:manipulation}
 /* The two playing controls stay at the bottom from the moment a song opens. */
 #reader-view .reader-tools{position:fixed;top:auto;bottom:18px;left:calc(var(--sidebar) + 30px);right:30px;width:auto;max-width:1050px;margin:0 auto;z-index:40;box-shadow:0 8px 35px #0002}#reader-view{padding-bottom:140px}body.focus-mode #reader-view .reader-tools{top:auto;left:24px;right:24px;bottom:18px}
 @media(max-width:600px){#reader-view .reader-tools{top:auto;left:12px;right:12px;bottom:78px}#reader-view{padding-bottom:170px}body.focus-mode #reader-view .reader-tools{top:auto;left:12px;right:12px;bottom:12px}body.focus-mode #reader-view{padding-bottom:130px}}
+#sidebar-toggle{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;margin-right:14px;min-height:36px;padding:7px 11px;border:1px solid var(--border);border-radius:8px;background:var(--paper);color:var(--ink);font-size:11px}#sidebar-toggle>span:first-child{font-size:17px}#sidebar-toggle:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+@media(min-width:601px){body.sidebar-collapsed{--sidebar:0px}body.sidebar-collapsed .sidebar{display:none}body.sidebar-collapsed .app-shell{margin-left:0}}
+@media(max-width:600px){#sidebar-toggle{display:none}}
+@media print{#sidebar-toggle{display:none!important}}
