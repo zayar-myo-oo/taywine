@@ -31,7 +31,7 @@
  ['ပုံနှိပ်မယ်','Print'],['Link ကူးမယ်','Copy link'],['သီချင်း link ကူးပြီးပါပြီ','Song link copied'],['Browser address bar မှ link ကို ကူးယူနိုင်ပါတယ်။','You can copy this song link from your address bar.'],
  ['သီချင်းစာရင်း ဖွင့်မရပါ','Song collection unavailable'],['စာရင်းဖွင့်မရသေးပါ။','We could not load your collection.'],['အင်တာနက် စစ်ပြီး စာမျက်နှာကို ပြန်ဖွင့်ကြည့်ပါ။','Check your connection and refresh the page.'],
  ['အသုံးပြုထားသော chords','Chords in this song'],['နှိပ်ပြီး လက်ကွက်ကြည့်ပါ','Tap a chord to see its shape'],['ဂစ်တာလက်ကွက် အညွှန်း','GUITAR CHORD REFERENCE'],
- ['ဒီ chord အတွက် လက်ကွက်မထည့်ရသေးပါ။','A diagram is not available for this chord yet.'],['Chord နာမည်ကို မူရင်းအတိုင်း ဖော်ပြထားပါတယ်။','The chord name is shown as written.'],
+ ['Chord shapes','လက်ကွက်များ'],['ယခင်လက်ကွက်','Previous chord shape'],['နောက်လက်ကွက်','Next chord shape'],['ဒီ chord အတွက် လက်ကွက်မထည့်ရသေးပါ။','A diagram is not available for this chord yet.'],['Chord နာမည်ကို မူရင်းအတိုင်း ဖော်ပြထားပါတယ်။','The chord name is shown as written.'],
  ['မတီးရ · ○ ကြိုးလွတ်','Muted · ○ Open string'],['တိတ်တဆိတ် ဖတ်မယ်','Focus mode'],['ပုံမှန်ပုံစံသို့','Exit focus'],['Focus mode ထွက်မယ်','Leave focus mode'],
  ['ပုံထည့်မယ်','Add artwork'],['ပုံဖယ်မယ်','Remove artwork'],['ဂီတအလှပုံ','Music artwork'],['ပုံသိမ်းဖို့ နေရာမလုံလောက်ပါ။ သိမ်းထားတဲ့ပုံအချို့ကို ဖယ်ပြီး ပြန်စမ်းပါ။','Your browser storage is full. Remove some saved artwork and try again.'],
  ['ကိုယ်ထည့်ထားတဲ့ပုံ ဖယ်ပြီးပါပြီ','Your custom artwork was removed'],['JPG၊ PNG သို့မဟုတ် WebP ပုံကို ရွေးပေးပါ။','Choose a JPG, PNG or WebP image.'],['10 MB အောက် ပုံကို ရွေးပေးပါ။','Choose an image smaller than 10 MB.'],
