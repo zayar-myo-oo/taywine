@@ -66,3 +66,15 @@ body.dark .chord-chip-list button:hover{background:#3c5233;border-color:#7b9863}
 .reader-artist-link:hover,.reader-artist-link:focus-visible{text-decoration-color:currentColor}
 .artist-source-link{color:var(--muted);text-decoration:none;font-size:.85em;margin-left:2px}
 .artist-source-link:hover{color:inherit}
+/* Mobile smoothness */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,a,select,input,label,[data-song],[data-artist]{touch-action:manipulation}
+@media(max-width:850px){
+ /* The reader toolbar has an opaque background, so its blur only cost scroll frames. */
+ .reader-tools{backdrop-filter:none}
+ .draw-dialog,#chord-dialog,#listen-panel{overscroll-behavior:contain}
+}
+@media(hover:none){
+ /* Touch: no hover lift left stuck on a card after tapping it. */
+ .pick-art:hover img,.chord-chip-list button:hover,.mood-card:hover{transform:none}
+}
