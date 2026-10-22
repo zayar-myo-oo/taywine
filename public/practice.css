@@ -4,7 +4,7 @@
 @media print{#chords-used,#chord-dialog,#focus-exit,#focus-toggle{display:none!important}}
 
 /* Chords in the sheet are usable by mouse, touch and keyboard. */
-.song-sheet button.chord{font:inherit;font-size:.72em;color:#5a7844;display:block;border:0;border-bottom:1px dotted currentColor;background:transparent;padding:0 2px;cursor:pointer;line-height:inherit;text-align:left;border-radius:3px}
+.song-sheet button.chord{font:inherit;font-size:.72em;color:#5a7844;display:block;border:0;border-bottom:0;background:transparent;padding:0 2px;cursor:pointer;line-height:inherit;text-align:left;border-radius:3px}
 .song-sheet button.chord:hover,.song-sheet button.chord:focus-visible{background:#dce8c7;color:#314c25;outline:2px solid #8aa46e;outline-offset:2px}
 #chord-dialog:not(:modal){position:fixed;inset:auto 20px 20px auto;margin:0;z-index:120;max-height:calc(100dvh - 40px);overflow:auto}
 #chord-variant-total{font-size:12px;color:var(--muted);margin:8px 0}
@@ -43,3 +43,13 @@ body.dark .song-sheet button.chord{color:#b0ce8a}
 #chord-variants button{width:27px;height:27px;font-size:21px}
 #chord-play{font-size:16px;padding:7px 20px;margin:2px auto 0}
 #chord-dialog .chord-legend{display:none}
+
+/* Chord labels sit just above their words, without underlines. */
+.song-sheet .lyric-unit{align-items:flex-start}
+.song-sheet button.chord{display:inline-block;align-self:flex-start;width:auto;min-width:0;min-height:0;border:0!important;background:#eeefed;border-radius:3px;padding:1px 4px;margin:0 1px 1px 0;font:600 .8em/1.35 'DM Sans',sans-serif;color:#26312a;white-space:nowrap;text-decoration:none}
+.song-sheet button.chord:hover,.song-sheet button.chord:focus-visible{background:#dce7ce;outline:0;box-shadow:0 0 0 2px #9eaf8b}
+.song-sheet .lyric-text{line-height:1.8}
+.song-sheet .sheet-line{margin-bottom:10px}
+.song-sheet .chord:empty{min-height:1.35em}
+body.dark .song-sheet button.chord{background:#3a483d;color:#e4e8d9}
+@media print{.song-sheet button.chord{background:none;box-shadow:none}}

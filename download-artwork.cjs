@@ -1,3 +1,3 @@
-const fs=require('fs');fs.mkdirSync('dist/artwork',{recursive:true});
+const fs=require('fs');fs.mkdirSync('public/artwork',{recursive:true});
 const photos=['photo-1510915361894-db8b60106cb1','photo-1511379938547-c1f69419868d','photo-1516280440614-37939bbacd81'];
-(async()=>{for(const [i,id] of photos.entries()){const url=`https://images.unsplash.com/${id}?auto=format&fit=crop&w=360&h=360&q=80`;const res=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!res.ok||!res.headers.get('content-type')?.startsWith('image/'))throw Error('Photo download failed '+id);fs.writeFileSync(`dist/artwork/music-${i+1}.jpg`,Buffer.from(await res.arrayBuffer()));console.log('Artwork '+(i+1)+' saved')}})();
+(async()=>{for(const [i,id] of photos.entries()){const url=`https://images.unsplash.com/${id}?auto=format&fit=crop&w=360&h=360&q=80`;const res=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!res.ok||!res.headers.get('content-type')?.startsWith('image/'))throw Error('Photo download failed '+id);fs.writeFileSync(`public/artwork/music-${i+1}.jpg`,Buffer.from(await res.arrayBuffer()));console.log('Artwork '+(i+1)+' saved')}})();

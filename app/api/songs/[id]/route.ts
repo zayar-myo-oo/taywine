@@ -1,0 +1,3 @@
+import {row,knownId,json,error} from '../../../../lib/cms/server';
+export const dynamic='force-dynamic';
+export async function GET(request:Request,context:{params:Promise<{id:string}>}){try{const {id}=await context.params;const item=await row(id);if(item){if(item.deleted_at||item.visibility==='hidden')return json({error:'Song not found.'},404);if(item.visibility==='published'&&item.published)return json(JSON.parse(item.published))}if(!knownId(id))return json({error:'Song not found.'},404);return new Response(null,{status:307,headers:{Location:new URL(`/songs/${id}.json`,request.url).href,'Cache-Control':'no-store'}})}catch(e){return error(e)}}

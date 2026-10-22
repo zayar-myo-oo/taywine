@@ -1,6 +1,6 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');const catalog=JSON.parse(fs.readFileSync('dist/catalog.json','utf8'));
-const context={state:{songs:[]},safeRead:()=>[],window:{Nyoh:{renderDiscover(){},songReady(){}},addEventListener(){}},document:{addEventListener(){}},Intl,Date};vm.createContext(context);vm.runInContext(fs.readFileSync('dist/discovery.js','utf8'),context);context.state.songs=catalog;const ranked=context.window.NyohDiscovery.ranked;
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');const catalog=JSON.parse(fs.readFileSync('public/catalog.json','utf8'));
+const context={state:{songs:[]},safeRead:()=>[],window:{Nyoh:{renderDiscover(){},songReady(){}},addEventListener(){}},document:{addEventListener(){}},Intl,Date};vm.createContext(context);vm.runInContext(fs.readFileSync('public/discovery.js','utf8'),context);context.state.songs=catalog;const ranked=context.window.NyohDiscovery.ranked;
 const popular=ranked('popular');assert.ok(popular.length>0);for(let i=1;i<popular.length;i++)assert.ok(popular[i-1].source_views>=popular[i].source_views);
 assert.ok(ranked('trending').every(s=>Date.parse(s.source_added_at)>=Date.now()-90*86400000));assert.ok(ranked('easy').every(s=>s.beginner_friendly));assert.equal(ranked('recent').length,0);
-for(const s of catalog){assert.ok(fs.existsSync(`dist/songs/${s.id}.json`));if(s.beginner_friendly)assert.ok(s.chord_count>0&&s.chord_count<=5)}for(let i=1;i<=3;i++)assert.ok(fs.statSync(`dist/artwork/music-${i}.jpg`).size>1000);
+for(const s of catalog){assert.ok(fs.existsSync(`public/songs/${s.id}.json`));if(s.beginner_friendly)assert.ok(s.chord_count>0&&s.chord_count<=5)}for(let i=1;i<=3;i++)assert.ok(fs.statSync(`public/artwork/music-${i}.jpg`).size>1000);
 console.log('PASS: real-source popularity ordering, 90-day trending window, beginner filters, empty history, and fallback photo assets.');
