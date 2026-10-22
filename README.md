@@ -159,4 +159,4 @@ The legacy `site.tar.gz` is historical, not the current deployable artifact. The
 
 ## Reader artist identity
 
-The reader shows a larger artist credit with an image and a compact companion at the bottom right after scrolling past the credit. Existing song artwork is labeled as artwork, not a verified artist portrait. Missing images use artist initials. Readers can add a cropped artist portrait that is stored for that exact artist credit in the current browser and reused across its songs. These personal portraits are not uploaded or shared. Automated artist-photo discovery and artist-alias merging are separate future work.
+A compact artist image/name and one related song appear after the chord sheet. The related song favors the same artist credit, then a shared credited performer, excludes the current song, and opens directly in the reader. No floating artist card or large listening banner is shown. Existing song artwork is used when available; missing images use initials. Previously saved browser portraits remain supported. Automated portrait discovery and artist-alias merging remain separate work.
