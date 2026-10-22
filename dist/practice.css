@@ -16,3 +16,19 @@
 @media print{.song-sheet button.chord{border:0;padding:0}}
 
 body.dark .song-sheet button.chord{color:#b0ce8a}
+
+/* Compact reference card beside the selected chord. */
+#chord-dialog:not(:modal){inset:auto;margin:0;width:260px;padding:18px 22px;max-height:calc(100dvh - 24px);border-radius:2px;background:#fff;color:#171717;box-shadow:0 12px 32px #0003;border:1px solid #d6d6dc;text-align:center}
+#chord-dialog>.eyebrow,#chord-variant-total{display:none}
+#chord-dialog h2{font:600 25px 'DM Sans',sans-serif;margin:10px 0 5px}
+#chord-dialog .guitar-diagram{color:#242424;width:155px;height:169px}
+#chord-dialog .guitar-diagram .finger-dot{fill:#242424}
+#chord-dialog .guitar-diagram .finger-number{fill:white;font:600 13px 'DM Sans',sans-serif}
+#chord-dialog .guitar-diagram text{fill:#292929}
+#chord-dialog .guitar-diagram .finger-number{fill:white}
+#chord-dialog .fret-values{display:none}
+#chord-variants{gap:8px;font-size:20px;margin:5px 0 12px;color:#62626a}
+#chord-variants button{border:0;background:transparent;color:#171717;font-size:28px;height:36px;width:36px}
+#chord-play{display:block;margin:0 auto 12px;background:#ebebef;border-radius:40px;padding:11px 28px;font:500 23px 'DM Sans',sans-serif;color:#171717}
+#chord-play:disabled{display:none}
+#chord-dialog .chord-legend{font-size:9px;color:#666;line-height:1.9}

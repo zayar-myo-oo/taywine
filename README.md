@@ -50,12 +50,13 @@ Focus mode hides navigation and decorative media while preserving the reader con
 ### Guitar chord help / ဂစ်တာလက်ကွက် ကြည့်နည်း
 
 - သီချင်းစာသားထဲက chord သို့မဟုတ် အပေါ်ရှိ chord ခလုတ်ကို mouse ထောက်ပါ။ လက်ကွက်ပုံ preview ပေါ်လာပါမည်။ Keyboard ဖြင့် Tab သုံး၍ chord ကိုရွေးပြီး Enter / Space နှိပ်ကြည့်နိုင်သည်။
-- ဖုန်းတွင် chord ကို နှိပ်ပါ။ Desktop တွင် နှိပ်လျှင် dialog ဖွင့်ထားနိုင်သည်။ Close သို့မဟုတ် Escape ဖြင့် ပိတ်ပါ။
-- လက်ကွက်အရေအတွက်နှင့် လက်ရှိလက်ကွက်နံပါတ်ကို ပြထားပြီး ← / → ဖြင့် ပြောင်းကြည့်နိုင်သည်။ ဤအရေအတွက်သည် app ထဲရှိ လက်ကွက်အရေအတွက်သာ ဖြစ်သည်။
-- × = မတီးရသောကြိုး၊ ○ = ကြိုးလွတ်၊ အစက် = ဖိရမည့်နေရာ။ ပုံအောက်ရှိ နံပါတ်များမှာ E A D G B e ကြိုးအစဉ်လိုက် fret နံပါတ်များဖြစ်သည်။
+- ဖုန်းတွင် chord ကို နှိပ်ပါ။ Desktop တွင် နှိပ်လျှင် chord အနားရှိ card ကို ဖွင့်ထားနိုင်သည်။ Close၊ Escape သို့မဟုတ် card အပြင်ဘက်နှိပ်၍ ပိတ်ပါ။
+- လက်ကွက်နံပါတ်ကို “1 of …” ပုံစံဖြင့် ပြထားပြီး ← / → ဖြင့် ပြောင်းကြည့်နိုင်သည်။ ဤအရေအတွက်သည် app ထဲရှိ လက်ကွက်အရေအတွက်သာ ဖြစ်သည်။
+- × = မတီးရသောကြိုး၊ ○ = ကြိုးလွတ်၊ အစက် = ဖိရမည့်နေရာ။ အစက်ထဲရှိ 1–4 သည် လက်ညှိုးမှ လက်သန်းအထိဖြစ်ပြီး နံပါတ်တူများကို barre ဖြင့် ဖိနိုင်သည်။ ပုံအောက်ရှိ နံပါတ်များမှာ E A D G B e ကြိုးအစဉ်လိုက် fret နံပါတ်များဖြစ်သည်။
+- **Play** synthesizes a short strum of the selected shape through the Web Audio API after a click/tap. It uses standard tuning, works without audio downloads, and is a pitch reference rather than a recorded guitar.
 - Transposing updates both sheet chords and diagrams. Lyrics-only mode hides chord help.
 
-Common open shapes and movable major, minor, seventh, suspended, diminished-seventh, add9, power and sixth shapes are supported up to fret 15. Duplicate shapes are removed. The displayed count describes the available reference shapes, not every possible way to play a chord. Only explicitly curated slash-chord shapes are supported; unavailable chords show an honest fallback rather than an incorrect diagram. Diagrams use standard guitar tuning and indicate frets, not finger assignments.
+Common open shapes and movable major, minor, seventh (including 7sus4), suspended, diminished-seventh, add9, power and sixth shapes are supported up to fret 15. Duplicate shapes are removed. The displayed count describes the available reference shapes, not every possible way to play a chord. Only explicitly curated slash-chord shapes are supported; unavailable chords show an honest fallback rather than an incorrect diagram. Diagrams use standard guitar tuning, with curated fingerings for common open chords and fret-based barre suggestions for movable shapes.
 
 ## Verification
 
