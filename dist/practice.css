@@ -32,3 +32,14 @@ body.dark .song-sheet button.chord{color:#b0ce8a}
 #chord-play{display:block;margin:0 auto 12px;background:#ebebef;border-radius:40px;padding:11px 28px;font:500 23px 'DM Sans',sans-serif;color:#171717}
 #chord-play:disabled{display:none}
 #chord-dialog .chord-legend{font-size:9px;color:#666;line-height:1.9}
+
+/* Small hover reference: keep the song visible around it. */
+#chord-dialog:not(:modal){width:176px;padding:10px 12px 12px;box-shadow:0 6px 20px #0002}
+#chord-dialog h2{font-size:19px;margin:4px 0 0}
+#chord-dialog .guitar-diagram{width:120px;height:131px}
+#chord-dialog-close{width:22px;height:22px;top:3px;right:3px}
+#chord-dialog-close .ui-icon{width:13px;height:13px}
+#chord-variants{gap:3px;font-size:14px;margin:0 0 5px}
+#chord-variants button{width:27px;height:27px;font-size:21px}
+#chord-play{font-size:16px;padding:7px 20px;margin:2px auto 0}
+#chord-dialog .chord-legend{display:none}
