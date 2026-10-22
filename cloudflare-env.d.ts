@@ -5,6 +5,8 @@ declare namespace Cloudflare {
     ADMIN_LOGIN_USERNAME?: string;
     ADMIN_LOGIN_PASSWORD_HASH?: string;
     ADMIN_SESSION_SECRET?: string;
+    ANTHROPIC_API_KEY?: string;
+    OCR_MODEL?: string;
     BUCKET?: R2Bucket;
   }
 }

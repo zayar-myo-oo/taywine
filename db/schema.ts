@@ -59,3 +59,16 @@ export const sharedSetlists = sqliteTable('shared_setlists', {
  payload: text('payload').notNull(),
  createdAt: text('created_at').notNull(),
 });
+// Canonical artists group credited names (Myanmar/English aliases). Song records keep their original artist text.
+export const artists = sqliteTable('artists', {
+ id: text('id').primaryKey(),
+ name: text('name').notNull(),
+ createdAt: text('created_at').notNull(),
+ updatedAt: text('updated_at').notNull(),
+});
+export const artistAliases = sqliteTable('artist_aliases', {
+ aliasKey: text('alias_key').primaryKey(),
+ alias: text('alias').notNull(),
+ artistId: text('artist_id').notNull(),
+ createdAt: text('created_at').notNull(),
+}, table=>[index('artist_alias_artist_idx').on(table.artistId)]);

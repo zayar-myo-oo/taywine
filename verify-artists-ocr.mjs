@@ -1,0 +1,46 @@
+// Pure checks for artist aliases and OCR result handling. Run: node verify-artists-ocr.mjs
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {artistKey,splitCredits,enrichCatalog,creditStats,suggestions,validateMerge} from './lib/cms/artists.mjs';
+import {normalizeOcr,hasReviewMarks,imageType,REVIEW_MARK} from './lib/cms/ocr.mjs';
+import {validateSong} from './lib/cms/model.mjs';
+const catalog=JSON.parse(readFileSync('public/catalog.json','utf8'));
+const aliases=[{alias_key:'ထက်ယံ',alias:'ထက်ယံ',artist_id:'x1',name:'ထက်ယံ'},{alias_key:'htet yan',alias:'Htet Yan',artist_id:'x1',name:'ထက်ယံ'}];
+assert.equal(artistKey('  Htet   Yan​ '),'htet yan');
+assert.deepEqual(splitCredits('နွဲ့ယဉ်ဝင်း၊ သားသား၊ ထက်ယံ'),['နွဲ့ယဉ်ဝင်း','သားသား','ထက်ယံ']);
+const enriched=enrichCatalog(catalog,aliases);
+assert.equal(enriched.length,catalog.length,'no songs lost');
+assert.deepEqual(enriched.map(s=>s.id),catalog.map(s=>s.id),'IDs and order unchanged');
+const htet=enriched.filter(s=>s.artist_keys?.includes('a:x1'));
+assert.equal(htet.length,catalog.filter(s=>splitCredits(s.artist).some(p=>['ထက်ယံ','htet yan'].includes(artistKey(p)))).length);
+assert.ok(htet.length>=3,'Myanmar and English credits both resolve to one artist');
+assert.ok(htet.every(s=>s.artist_search.includes('Htet Yan')&&s.artist_search.includes('ထက်ယံ')),'searchable by either name');
+const multi=htet.find(s=>splitCredits(s.artist).length>1);assert.ok(multi.artist_keys.some(k=>k.startsWith('c:')),'multi-credit keeps its own credit group');
+assert.equal(htet.find(s=>s.artist==='htet yan').artist_names[0],'ထက်ယံ','canonical display name');
+assert.ok(enriched.filter(s=>!s.artist_keys).every((s,i)=>s===catalog[enriched.indexOf(s)]),'unmerged songs untouched');
+const credits=creditStats(catalog);
+assert.throws(()=>validateMerge({names:['htet yan'],name:'htet yan'},credits),/2–20/);
+assert.throws(()=>validateMerge({names:['htet yan','ထက်ယံ'],name:'Someone'},credits),/main display name/);
+assert.throws(()=>validateMerge({names:['htet yan','not a real artist xyz'],name:'htet yan'},credits),/not a credited/);
+assert.deepEqual(validateMerge({names:['htet yan','ထက်ယံ'],name:'ထက်ယံ'},credits).names.length,2);
+const sug=suggestions([{key:'htetyan',name:'HtetYan'},{key:'htet yan',name:'Htet Yan'},{key:'aung',name:'Aung'}],[]);
+assert.deepEqual(sug,[['HtetYan','Htet Yan']],'spacing variants suggested, not merged');
+assert.deepEqual(suggestions([{key:'htetyan',name:'HtetYan'},{key:'htet yan',name:'Htet Yan'}],[{alias_key:'htetyan',artist_id:'a'},{alias_key:'htet yan',artist_id:'a'}]),[],'already merged not suggested');
+// OCR
+const ocr=normalizeOcr({title:'ထာဝရ',artist:'',key:'G',capo:'2',chordpro:'{Verse 1}\n[G]ချစ်တယ် [Xq9]မင်း\n[C]'+REVIEW_MARK+' love',review:[{line:3,note:'smudged word'}]});
+assert.equal(ocr.song.artist,REVIEW_MARK,'missing artist flagged, not invented');
+assert.ok(ocr.review.some(r=>/Artist not found/.test(r.note)));
+assert.ok(ocr.review.some(r=>r.line===2&&/Xq9/.test(r.note)),'invalid chord flagged with line');
+assert.ok(ocr.song.chordpro.includes('[G]ချစ်တယ်'),'valid chord kept above its lyric');
+assert.ok(hasReviewMarks(ocr.song));
+const song=validateSong({...ocr.song,artist:'Someone',ocr_review:ocr.review},'cms-'+'0'.repeat(8)+'-0000-0000-0000-'+'0'.repeat(12));
+assert.equal(song.capo,'2');assert.ok(song.ocr_review.length>0);
+assert.ok(hasReviewMarks(song),'publish is blocked while markers remain');
+assert.ok(!hasReviewMarks({...song,chordpro:'{Verse 1}\n[G]ချစ်တယ်'.normalize(),title:'ထာဝရ'}));
+assert.equal(imageType(new Uint8Array([0xff,0xd8,0xff,0])),'image/jpeg');
+assert.equal(imageType(new Uint8Array([0x89,0x50,0x4e,0x47])),'image/png');
+assert.equal(imageType(new TextEncoder().encode('RIFF0000WEBPVP8 ')),'image/webp');
+assert.equal(imageType(new TextEncoder().encode('GIF89a......')),null);
+// Public reader keeps its existing controls.
+const app=readFileSync('public/app.js','utf8');assert.ok(app.includes('matchesArtist(s,state.artist)')&&app.includes('artist_search'));
+console.log('artist alias + OCR checks passed');

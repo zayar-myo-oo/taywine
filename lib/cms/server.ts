@@ -15,3 +15,5 @@ export function db(){if(!env.DB)throw new CmsError('CMS database is unavailable.
 export function knownId(id:string){return validId(id)&&baseCatalog.some(s=>s.id===id)}
 export async function row(id:string){if(!validId(id))throw new CmsError('Invalid song ID.',400);return db().prepare('SELECT * FROM cms_songs WHERE id = ?').bind(id).first<Row>()}
 export function error(error:unknown){if(error instanceof CmsError)return json({error:error.message},error.status);console.error('CMS request failed',error);return json({error:'Unable to complete this request. Please try again.'},500)}
+export type AliasRow={alias_key:string;alias:string;artist_id:string;name:string};
+export async function aliasRows(){try{return (await db().prepare('SELECT a.alias_key,a.alias,a.artist_id,r.name FROM artist_aliases a JOIN artists r ON r.id=a.artist_id ORDER BY a.alias').all<AliasRow>()).results}catch(e){if(String(e).includes('no such table'))return [];throw e}}

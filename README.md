@@ -42,7 +42,32 @@ Drafts and published snapshots are stored separately. Existing bundled songs rem
 
 The editor warns about unsaved changes and supports Cmd/Ctrl+S. Revision checks reject conflicting saves from another tab/device. Changes are never silently overwritten. After a conflict, retain any needed text and reopen the song before saving again.
 
-Artist names are edited with each song; public artist browsing reflects published song metadata. This release does not introduce separate artist biography records, file uploads or an admin-role management screen. Cover and YouTube fields accept HTTPS links.
+Artist names are edited with each song. Canonical artist aliases are managed at `/admin/artists` (see below). This release does not introduce artist biography records or an admin-role management screen. Cover and YouTube fields accept HTTPS links.
+
+## Chord image OCR / ပုံမှ စာသားပြောင်းခြင်း
+
+The ChordPro editor remains the main way to type songs. Above the song list, **Chord ပုံတင်ပြီး စာသားပြောင်းမယ်** accepts JPG, PNG or WebP (drag-drop or file picker).
+
+1. The browser downsizes large photos (max 2200 px, ≤ 5 MB upload) and sends them to the authenticated, same-origin `/api/admin/ocr` route.
+2. The Worker calls the Claude API (`claude-opus-5-5` vision, structured JSON output) and returns title, artist, key, capo, `{Section}` headings and ChordPro with each chord placed before the syllable it is printed above. Myanmar and English text is transcribed, not translated or corrected.
+3. Unreadable text or chords are written as `⟦?⟧` with a line-numbered review note instead of being guessed. Bracketed text that is not a valid chord symbol is also flagged. A missing title/artist becomes `⟦?⟧`.
+4. The result is saved immediately as a **Draft** (source `TayWine OCR`). The editor shows the original image, ChordPro and live preview side by side; click a review note to jump to its line.
+5. **Publish is refused server-side while any `⟦?⟧` remains** in title, artist, key, capo or ChordPro. Clear review notes with **စစ်ပြီး · မှတ်စုဖယ်မယ်**.
+
+The uploaded image is used only for that OCR request and the current browser view; it is not stored (the project has no R2 bucket).
+
+**Required configuration:** add `ANTHROPIC_API_KEY` (an Anthropic API key) as a **secret** runtime variable in Sites environment settings, then deploy again. Optional `OCR_MODEL` overrides the model. The key is read only by the Worker and is never sent to the browser or committed. Without it the OCR route responds `503 ocr_not_configured` and the CMS shows what to add. Each OCR run is a paid Claude API request.
+
+## Artist aliases / အဆိုတော်နာမည်ပေါင်းခြင်း
+
+`/admin/artists` (Studio sidebar → **Artists**) links Myanmar/English spellings such as `ထက်ယံ` and `Htet Yan` under one canonical artist.
+
+- Search credited names, select two or more, choose the display name, press **Preview** to see every affected song, then **Merge**. Merge is disabled until a preview has been shown.
+- Matching is by exact normalized credit (case, spacing and zero-width characters ignored). Multi-performer credits (`A၊ B၊ ထက်ယံ`) are split, so each performer's songs are found.
+- Similar spellings (spacing/punctuation only) are listed as suggestions. Nothing is merged automatically, and Myanmar ↔ English pairs always need an admin.
+- Each merged group can change its main name or **Unmerge** one alias. A group left with one name is removed.
+- Public search by any alias, the artist list, artist pages, the artist count and the reader's related song all treat the group as one artist. Content Analysis counts single-credit songs under the canonical name.
+- Song IDs, URLs, favorites and each song's original artist text are not modified; aliases are separate `artists` / `artist_aliases` tables (migration `0003_wandering_roulette.sql`).
 
 ## Admin access configuration
 
@@ -137,6 +162,7 @@ node verify-discovery.cjs
 node verify-media.cjs
 node verify-cms.mjs
 node verify-analytics.mjs
+node verify-artists-ocr.mjs
 npx tsc --noEmit
 npm run build
 ```
@@ -159,4 +185,4 @@ The legacy `site.tar.gz` is historical, not the current deployable artifact. The
 
 ## Reader artist identity
 
-A compact artist image/name and one related song appear after the chord sheet. The related song favors the same artist credit, then a shared credited performer, excludes the current song, and opens directly in the reader. No floating artist card or large listening banner is shown. Existing song artwork is used when available; missing images use initials. Previously saved browser portraits remain supported. Automated portrait discovery and artist-alias merging remain separate work.
+A compact artist image/name and one related song appear after the chord sheet. The related song favors the same artist credit, then a shared credited performer, excludes the current song, and opens directly in the reader. No floating artist card or large listening banner is shown. Existing song artwork is used when available; missing images use initials. Previously saved browser portraits remain supported. Merged artist aliases also drive the related song. Automated portrait discovery remains separate work.
