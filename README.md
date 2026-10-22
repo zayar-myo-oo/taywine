@@ -156,3 +156,7 @@ The integration check refuses non-loopback URLs. It creates disposable local tes
 Push source to GitHub, then use the Sites workflow with the **existing project ID** in `.openai/hosting.json`. Build the Worker and save/deploy its archive. A GitHub push by itself does not publish this Sites website. Hosted D1 migrations apply during deployment; keep applied migrations immutable and append new migrations for future changes.
 
 The legacy `site.tar.gz` is historical, not the current deployable artifact. The project is now server-backed; uploading only the original static files does not provide CMS functionality. CMS content updates use the database and **Publish** button and need no code deployment.
+
+## Reader artist identity
+
+The reader shows a larger artist credit with an image and a compact companion at the bottom right after scrolling past the credit. Existing song artwork is labeled as artwork, not a verified artist portrait. Missing images use artist initials. Readers can add a cropped artist portrait that is stored for that exact artist credit in the current browser and reused across its songs. These personal portraits are not uploaded or shared. Automated artist-photo discovery and artist-alias merging are separate future work.
