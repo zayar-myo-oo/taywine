@@ -8,6 +8,13 @@
       "when": 1792665790445,
       "tag": "0000_square_prism",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1792666929324,
+      "tag": "0001_faithful_jack_murdock",
+      "breakpoints": true
     }
   ]
 }
