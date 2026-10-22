@@ -1,0 +1,3 @@
+import {publicCatalog,publicSong} from '../../../lib/cms/public-server';
+import {json,error} from '../../../lib/cms/server';
+export async function GET(request:Request){try{const id=new URL(request.url).searchParams.get('songId')||'';const current=await publicSong(id);if(!current)return json({error:'Song not found.'},404);const root=current.parent_id||id;const {catalog}=await publicCatalog();return json(catalog.filter((song:any)=>song.id===root||song.parent_id===root).map((song:any)=>({id:song.id,title:song.title,artist:song.artist,label:song.arrangement_label||'Original'})))}catch(e){return error(e)}}

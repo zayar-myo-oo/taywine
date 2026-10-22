@@ -1,0 +1,6 @@
+import {db,json,error} from '../../../lib/cms/server';
+import {checkWrite,readBody,CmsError} from '../../../lib/cms/model.mjs';
+import {submission} from '../../../lib/cms/community.mjs';
+import {publicSong,throttle} from '../../../lib/cms/public-server';
+export async function POST(request:Request){try{checkWrite(request);const input=submission(await readBody(request));if(input.songId&&!await publicSong(input.songId))throw new CmsError('Song not found.',404);await throttle(request,'community');const id=crypto.randomUUID();await db().prepare('INSERT INTO community_submissions (id,kind,song_id,payload,status,reply,created_at) VALUES (?,?,?,?,?,?,?)').bind(id,input.kind,input.songId||null,JSON.stringify(input),'pending','',new Date().toISOString()).run();return json({ticket:id,status:'pending'},201)}catch(e){return error(e)}}
+export async function GET(request:Request){try{const token=new URL(request.url).searchParams.get('ticket')||'';if(!/^[a-f0-9-]{36}$/.test(token))throw new CmsError('Invalid ticket.');const item=await db().prepare('SELECT id,kind,status,reply,approved_song_id,created_at FROM community_submissions WHERE id=?').bind(token).first();return item?json(item):json({error:'Ticket not found.'},404)}catch(e){return error(e)}}

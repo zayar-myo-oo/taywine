@@ -103,11 +103,35 @@ For local password integration checks only, `.dev.vars` may contain separate tes
 
 Original source arrangements can contain missing credits or malformed chord text. Source text is preserved in the original files. MusiBurma cumulative views are source popularity, not TayWine traffic; trending uses publication dates from the past 90 days. See [ARTWORK.md](ARTWORK.md) for fallback photo attribution. Custom reader artwork/media overrides remain browser-local.
 
+## Practice Studio and community tools
+
+Open **Practice Studio** in the header or song reader. The reader keeps its continuous auto-scroll running while you scroll manually or adjust controls.
+
+| Selected feature | Available behavior |
+| --- | --- |
+| 1, 9 Smart Practice / section loops | Practice chord transitions or a selected section with chord diagrams, adjustable beats per chord and repeats. |
+| 2, 5 Easy Key / Simplify | Compare capo shapes while preserving concert pitch; optionally simplify common extensions. Suspended, diminished and altered chords are preserved. |
+| 4 Known-chord discovery | Save known chords in this browser and filter songs whose chord sets you can play. |
+| 8 Metronome / Tap Tempo | Adjustable 30–240 BPM, tap tempo and synthesized practice accompaniment. |
+| 3 Offline Song Packs | Download up to 50 songs per pack, including the reader shell. Open saved packs without a connection. Browser storage can be cleared or evicted; video, submissions and new shared links still need internet. |
+| 13 Band Setlists | Reorder songs, save key shifts/capo/notes locally, and share an immutable server snapshot. Link recipients can import their own copy; later changes require a new share link. |
+| 17, 18, 19 Community | Submit song requests, chord corrections or original arrangements; retain a private ticket to check moderation status and replies. Arrangements require permission confirmation and admin approval before publication. |
+| 20 Arrangement versions | Switch between published original and approved community arrangements in the reader. |
+| 23 Voice Key | Enter a comfortable vocal range or measure sustained notes with the microphone. Audio is processed locally and never uploaded. Key recommendations require the song's actual melody low/high notes; these are not inferred from chords. |
+| 24 Song cards | Generate a downloadable PNG card with title, artist, key and an actual QR link to the song. |
+| 25 CMS revisions | Inspect saved revisions and load a previous snapshot into the editor, then explicitly save/publish. History begins with feature-era saves; bundled originals remain separately available. |
+| 26 CMS quality checker | Check required fields, chord syntax, section markers and HTTPS links. Optional link checks distinguish broken, blocked and unverified results. |
+
+CMS moderation is at `/admin/community`. Requests and corrections are reviewed there and applied using the song editor; approving an arrangement creates a published variant atomically. Community payloads are never published merely by submitting them. Anonymous submissions and setlist creation are validated, same-origin restricted and rate limited. Anyone with a shared setlist URL can read that snapshot.
+
+Migration `0002_strong_captain_flint.sql` adds revisions, community submissions and shared setlists. The service worker caches public reader assets/catalog/saved songs only; it excludes admin pages, authenticated APIs and submissions. Local practice preferences, packs and editable setlists belong to the current browser, without account synchronization.
+
 ## Verification
 
 ```sh
 node verify.cjs
 node verify-practice.cjs
+node verify-features.mjs
 node verify-localization.cjs
 node verify-discovery.cjs
 node verify-media.cjs
@@ -121,6 +145,7 @@ For local database lifecycle checks, run the preview and then:
 
 ```sh
 CMS_TEST_ORIGIN=http://127.0.0.1:5173 node verify-cms.mjs
+CMS_TEST_ORIGIN=http://127.0.0.1:5173 node verify-features.mjs
 CMS_TEST_ORIGIN=http://127.0.0.1:5173 node verify-analytics.mjs
 ```
 

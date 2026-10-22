@@ -1,0 +1,22 @@
+/* Pure musical helpers shared by the practice UI and its tests. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.TayWineMusic=api})(typeof window!=='undefined'?window:globalThis,()=>{
+ const notes=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'],aliases={Db:'C#',Eb:'D#',Gb:'F#',Ab:'G#',Bb:'A#',Cb:'B',Fb:'E','E#':'F','B#':'C'};
+ const pattern=/^[A-G](?:#|b)?(?:(?:maj|min|dim|aug|sus|add|omit|dom|m|M|ø|°)|\d+|[#b+-]|\([A-Ga-z0-9#b,+-]+\))*(?:\/[A-G](?:#|b)?)?$/;
+ const isChord=value=>typeof value==='string'&&pattern.test(value.trim());
+ function transpose(chord,steps=0){if(!isChord(chord))return chord;return chord.trim().replace(/(^|\/)([A-G](?:#|b)?)/g,(_,slash,n)=>slash+notes[(notes.indexOf(aliases[n]||n)+steps%12+12)%12])}
+ const normalize=chord=>transpose(chord,0).replace(/^([A-G]#?)min/,'$1m');
+ const chords=text=>[...new Set([...String(text||'').matchAll(/\[([^\]\n]+)\]/g)].map(m=>m[1].trim()).filter(isChord))];
+ const sequence=text=>[...String(text||'').matchAll(/\[([^\]\n]+)\]/g)].map(m=>m[1].trim()).filter(isChord);
+ function simplify(chord){if(!isChord(chord))return chord;const [head,bass]=chord.split('/'),m=head.match(/^([A-G](?:#|b)?)(.*)$/);const quality=m[2];if(/dim|aug|sus|ø|°|b5|#5/.test(quality)||quality==='5')return chord;const minor=/^(?:min|m(?!aj))/.test(quality);return m[1]+(minor?'m':'')+(bass?'/'+bass:'')}
+ function simplifySheet(text){return String(text).replace(/\[([^\]\n]+)\]/g,(whole,c)=>isChord(c.trim())?'['+simplify(c.trim())+']':whole)}
+ function sections(text){const parts=[];let current={name:'Intro',lines:[]};for(const line of String(text||'').split('\n')){const heading=line.match(/^\s*\{(.*?)\}\s*$/);if(heading){if(current.lines.some(l=>l.trim()))parts.push({...current,text:current.lines.join('\n')});current={name:heading[1],lines:[]}}else current.lines.push(line)}if(current.lines.some(l=>l.trim()))parts.push({...current,text:current.lines.join('\n')});return parts}
+ const defaultKnown=['C','D','E','G','A','Am','Em','Dm','A7','D7','E7','G7','Cmaj7'];
+ function easyOptions(symbols,known=defaultKnown,shift=0){const allowed=new Set(known.map(normalize)),unique=[...new Set(symbols.filter(isChord))];return Array.from({length:12},(_,capo)=>{const shapes=unique.map(c=>transpose(c,shift-capo));const missing=shapes.filter(c=>!allowed.has(normalize(c)));return {capo,shift,shapes,missing,score:missing.length*20+shapes.reduce((sum,c)=>sum+(c.includes('#')?2:0)+(c.includes('/')?2:0),0)+capo*.25}}).sort((a,b)=>a.score-b.score||a.capo-b.capo)}
+ function canPlay(symbols,known){const set=new Set(known.map(normalize));return symbols.length>0&&symbols.every(c=>set.has(normalize(c)))}
+ function noteMidi(value){const m=String(value).trim().match(/^([A-G](?:#|b)?)(-?\d)$/);if(!m)return null;return (Number(m[2])+1)*12+notes.indexOf(aliases[m[1]]||m[1])}
+ const midiNote=midi=>notes[((Math.round(midi)%12)+12)%12]+(Math.floor(Math.round(midi)/12)-1);
+ const frequencyMidi=frequency=>69+12*Math.log2(frequency/440);
+ function fitRange(melodyLow,melodyHigh,voiceLow,voiceHigh){if(![melodyLow,melodyHigh,voiceLow,voiceHigh].every(Number.isFinite)||melodyLow>melodyHigh||voiceLow>voiceHigh)return [];return Array.from({length:25},(_,i)=>i-12).filter(shift=>melodyLow+shift>=voiceLow&&melodyHigh+shift<=voiceHigh).sort((a,b)=>Math.abs(a)-Math.abs(b)||a-b)}
+ function estimatePitch(samples,sampleRate){let mean=0;for(const s of samples)mean+=s;mean/=samples.length;let energy=0;for(const s of samples)energy+=(s-mean)**2;if(Math.sqrt(energy/samples.length)<.012)return null;const min=Math.floor(sampleRate/1000),max=Math.min(Math.floor(sampleRate/70),Math.floor(samples.length/2)),values=[];let highest=0;for(let lag=min;lag<=max;lag++){let cross=0,left=0,right=0;for(let i=0;i<samples.length-max;i++){const a=samples[i]-mean,b=samples[i+lag]-mean;cross+=a*b;left+=a*a;right+=b*b}const score=cross/Math.sqrt(left*right||1);values[lag]=score;highest=Math.max(highest,score)}if(highest<.8)return null;for(let lag=min+1;lag<max;lag++){if(values[lag]>=values[lag-1]&&values[lag]>values[lag+1]&&values[lag]>=Math.max(.8,highest*.95)){const left=values[lag-1],middle=values[lag],right=values[lag+1],delta=.5*(left-right)/(left-2*middle+right||1);return sampleRate/(lag+delta)}}return null}
+ return {notes,isChord,transpose,normalize,chords,sequence,simplify,simplifySheet,sections,defaultKnown,easyOptions,canPlay,noteMidi,midiNote,frequencyMidi,fitRange,estimatePitch};
+});

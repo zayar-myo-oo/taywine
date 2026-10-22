@@ -52,5 +52,5 @@
  function toggleFocus(){if(document.body.classList.contains('focus-mode')){exitFocus();return}document.body.classList.add('focus-mode');if(!$('#focus-exit')){const b=document.createElement('button');b.id='focus-exit';b.textContent='Focus mode ထွက်မယ်';b.onclick=exitFocus;document.body.append(b)}$('#focus-exit').hidden=false;$('#focus-toggle').setAttribute('aria-pressed','true');$('#focus-toggle').textContent='Exit focus';$('#sheet').scrollIntoView({behavior:'smooth',block:'start'})}
  const previousReady=window.Nyoh.songReady;window.Nyoh.songReady=s=>{previousReady(s);const button=document.createElement('button');button.id='focus-toggle';button.textContent='Focus mode';button.setAttribute('aria-pressed',String(document.body.classList.contains('focus-mode')));button.onclick=toggleFocus;$('.reader-tools').append(button);renderChords()};
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('focus-mode')&&!$('#chord-dialog')?.open){exitFocus();e.stopImmediatePropagation()}},true);
- window.TayWinePractice={voicing,voicings,diagram,renderChords,exitFocus};
+ window.TayWinePractice={voicing,voicings,diagram,renderChords,exitFocus,showChord};
 })();

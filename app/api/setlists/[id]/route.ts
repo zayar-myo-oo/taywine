@@ -1,0 +1,3 @@
+import {db,json,error} from '../../../../lib/cms/server';
+import {publicSong} from '../../../../lib/cms/public-server';
+export async function GET(_request:Request,{params}:{params:Promise<{id:string}>}){try{const {id}=await params;if(!/^[a-f0-9-]{36}$/.test(id))return json({error:'Not found.'},404);const row=await db().prepare('SELECT payload FROM shared_setlists WHERE id=?').bind(id).first<{payload:string}>();if(!row)return json({error:'Not found.'},404);const payload=JSON.parse(row.payload);const items=await Promise.all(payload.items.map(async(item:any)=>{const song=await publicSong(item.id);return {...item,title:song?.title||'Unavailable song',artist:song?.artist||'',key:song?.key||'',available:!!song}}));return json({...payload,items})}catch(e){return error(e)}}

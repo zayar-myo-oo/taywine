@@ -1,0 +1,8 @@
+import {env} from 'cloudflare:workers';
+import {db,row,knownId,baseCatalog,type Row} from './server';
+import {CmsError,mergeCatalog} from './model.mjs';
+import {digest} from './auth.mjs';
+export async function publicSong(id:string){const item=await row(id);if(item){if(item.deleted_at||!['original','published'].includes(item.visibility))return null;if(item.visibility==='published'&&item.published)return JSON.parse(item.published)}return knownId(id)?baseCatalog.find(s=>s.id===id):null}
+export async function publicCatalog(){const rows=(await db().prepare('SELECT * FROM cms_songs').all<Row>()).results;return {catalog:mergeCatalog(baseCatalog,rows),rows}}
+export async function parentCheck(song:any){if(!song.parent_id)return;const parent=await publicSong(song.parent_id);if(!parent)throw new CmsError('The original song must be publicly available.');const root=parent.parent_id||parent.id;if(root===song.id||!await publicSong(root))throw new CmsError('Invalid original song.');song.parent_id=root;}
+export async function throttle(request:Request,namespace:string,limit=20){const secret=env.ADMIN_SESSION_SECRET||(import.meta.env.DEV?'local-preview-throttle-only':'');if(!secret)throw new CmsError('Service unavailable.',503);const start=Math.floor(Date.now()/3600000)*3600;const key=await digest(secret,namespace+':'+start+':'+(request.headers.get('cf-connecting-ip')||'unknown'));const item=await db().prepare('INSERT INTO cms_login_attempts (key,attempts,window_start) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET attempts=attempts+1 RETURNING attempts').bind(key,start).first<{attempts:number}>();if(!item||item.attempts>limit)throw new CmsError('Too many submissions. Please try again later.',429)}
