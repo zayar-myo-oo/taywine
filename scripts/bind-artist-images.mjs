@@ -6,10 +6,8 @@ const catalog=JSON.parse(readFileSync('public/catalog.json','utf8'));
 const out='public/artist-images.json';
 const key=name=>String(name||'').normalize('NFC').toLocaleLowerCase().replace(/[​-‍﻿]/g,'').replace(/\s+/g,' ').trim();
 const loose=name=>key(name).replace(/[^a-z0-9]/g,'');
-// Romanized spellings to search for Myanmar-script credits. Several spellings may be listed; a missing entry means the name is skipped.
-const roman={
- 'ထူးအိမ်သင်':['Htoo Eain Thin'],'စိုင်းထီးဆိုင်':['Sai Htee Saing'],'ခင်မောင်တိုး':['Khin Maung Toe'],'ဇော်ဝင်းထွဋ်':['Zaw Win Htut'],'လေးဖြူ':['Lay Phyu'],'ဇော်ပိုင်':['Zaw Paing'],'မျိုးကြီး':['Myo Gyi'],'ခိုင်ထူး':['Khaing Htoo','Khine Htoo'],'r ဇာနည်':['R Zarni','R Zar Ni'],'အငဲ':['Ah Nge','A Nge'],'စိုးလွင်လွင်':['Soe Lwin Lwin'],'နောနော်':['Naw Naw'],'ဝေလ':['Wai La'],'သာဒီးလူ':['Thar Dee Lu','Tha Dee Lu'],'လင်းလင်း':['Lin Lin'],'ဘိုဖြူ':['Bo Phyu'],'ဝိုင်ဝိုင်း':['Y Wine','Wyne Wyne'],'ချစ်ကောင်း':['Chit Kaung'],'လွှမ်းမိုး':['Hlwan Moe','Lwan Moe'],'အဲလက်စ်':['Alex'],'အရိုး':['A Yoe','Ayoe'],'စိုင်းဆိုင်မောဝ်':['Sai Saing Maw'],'အောင်လ':['Aung La'],'တူးတူး':['Tu Tu','Too Too'],'ထွန်းအိန္ဒြာဗို':['Tun Eindra Bo'],'ဂရေဟမ်':['Graham'],'ဂျီလတ်':['G Latt'],'ကိုင်ဇာ':['Kaizar','Kai Zar'],'ဖိုးကာ':['Phoe Kar'],'ဖိုးချို':['Phoe Cho'],'ဟန်ထွန်း':['Han Htun'],'ဟေမာနေဝင်း':['Hayma Ne Win'],'အောင်ထက်':['Aung Htet'],'မျိုးကျော့မြိုင်':['Myo Kyawt Myaing'],'စိုးပိုင်':['Soe Paing'],'ဂျေမောင်‌မောင်':['J Maung Maung'],'စည်သူလွင်':['Sithu Lwin'],'ရင်ဂို':['Ringo'],'l လွန်းဝါ':['L Lun Wa'],'ဆောင်းဦးလှိုင်':['Saung Oo Hlaing'],'ဝိုင်းစုခိုင်သိန်း':['Wyne Su Khaing Thein'],'ရွှေထူး':['Shwe Htoo'],'ဖြိုးပြည့်စုံ':['Phyo Pyae Sone'],'ဘန်နီဖြိုး':['Bunny Phyoe'],
-};
+// Romanized spellings to search for Myanmar-script credits; a missing entry means the name is skipped.
+import {romanized as roman} from '../lib/cms/artist-romanized.mjs';
 // Common syllables of romanized Burmese song titles, used to confirm the Deezer artist is the Myanmar artist.
 const burmese=/\b(nga|ngar|myar|chit|thu|lay|yay|tal|nae|kyay|hmar|mhar|nhint|thaw|tae|par|pyar|sate|yin|lwan|kya|mya|aung|moe|nay|phyu|thar|lar|chin|mae|byar|ma|ka|ya|sa|da|wa|nyi|kyo|hla|myit|aye|myat|hmone|thwel|hlite|than|pann|phyat|zar|rate|htin|sone|lone|kyin|nyo|sein|tin|win|lwin|thet|oo|pyaw|shwe|kyun|yoe|min|nar|kaung|chaw|phoe|htet|zaw|yar|mhan|bayy)\b/i;
 // Myanmar names with no public tracks to check; their photos were reviewed by eye before binding.

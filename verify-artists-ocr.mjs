@@ -2,6 +2,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {artistKey,splitCredits,enrichCatalog,creditStats,suggestions,validateMerge} from './lib/cms/artists.mjs';
+import {similarArtists} from './lib/cms/artists.mjs';
+import {sheetFromWords,readChords,readLabel} from './lib/cms/ocr-free.mjs';
 import {normalizeOcr,hasReviewMarks,imageType,REVIEW_MARK} from './lib/cms/ocr.mjs';
 import {validateSong} from './lib/cms/model.mjs';
 const catalog=JSON.parse(readFileSync('public/catalog.json','utf8'));
@@ -43,4 +45,16 @@ assert.equal(imageType(new TextEncoder().encode('RIFF0000WEBPVP8 ')),'image/webp
 assert.equal(imageType(new TextEncoder().encode('GIF89a......')),null);
 // Public reader keeps its existing controls.
 const app=readFileSync('public/app.js','utf8');assert.ok(app.includes('matchesArtist(s,state.artist)')&&app.includes('artist_search'));
+// Free OCR layout: chord row above a lyric row is merged by x position; labels, header and side watermark are handled.
+const W=(text,x0,y0,x1,conf=90)=>({text,x0,y0,x1,y1:y0+10,conf});
+const sheet=sheetFromWords([W('ချစ်သူ',100,0,160),W('တေးဆို',10,20,40),W('-',42,20,46),W('အောင်သူ',50,20,90),W('Intro',10,40,30),W('G',40,40,46),W('Am',50,40,60),W('2',64,40,68),W('G',60,60,66),W('6',120,60,126),W('V1.',10,72,25),W('မင်းကို',60,72,100),W('ချစ်တယ်',120,72,160),W('ဝဝ',40,90,80,20),
+ ...[0,1,2,3,4,5].map(i=>W('ဂ',300,i*15,306))]);
+assert.equal(sheet.song.title,'ချစ်သူ');assert.equal(sheet.song.artist,'အောင်သူ');
+assert.equal(sheet.song.chordpro,'{Intro}\n[G] [Am] x2\n{Verse 1}\n[G]မင်းကို [G]ချစ်တယ်\n'+REVIEW_MARK+'ဝဝ');
+assert.ok(sheet.review.some(r=>r.note.includes('"6"→G')));assert.ok(hasReviewMarks(sheet.song));
+assert.deepEqual(readChords('GAm').chords,['G','Am']);assert.equal(readChords('(င').chords[0],'C');assert.equal(readChords('ချစ်'),null);
+assert.equal(readLabel('Cho.'),'Chorus');assert.equal(readLabel('V2'),'Verse 2');assert.equal(readLabel('Pre'),'Pre-Chorus');assert.equal(readLabel('မင်း'),null);
+// Same / similar artist hints, including known Myanmar↔English pairs.
+const hint=similarArtists('Htoo eain thin',[{key:'htoo eain thin',name:'Htoo eain thin',songs:5},{key:'ထူးအိမ်သင်',name:'ထူးအိမ်သင်',songs:9},{key:'lay phyu',name:'Lay Phyu',songs:3}],[]);
+assert.deepEqual(hint.map(h=>[h.name,h.kind]),[['Htoo eain thin','same'],['ထူးအိမ်သင်','similar']]);
 console.log('artist alias + OCR checks passed');

@@ -56,7 +56,11 @@ The ChordPro editor remains the main way to type songs. Above the song list, **C
 
 The uploaded image is used only for that OCR request and the current browser view; it is not stored (the project has no R2 bucket).
 
-**Required configuration:** add `ANTHROPIC_API_KEY` (an Anthropic API key) as a **secret** runtime variable in Sites environment settings, then deploy again. Optional `OCR_MODEL` overrides the model. The key is read only by the Worker and is never sent to the browser or committed. Without it the OCR route responds `503 ocr_not_configured` and the CMS shows what to add. Each OCR run is a paid Claude API request.
+**Free by default (no key):** OCR runs in the admin's browser with Tesseract.js (Myanmar + English, ~10 MB language data downloaded once from the jsDelivr/tessdata CDN). The image is pre-processed (upscaled, darkest-channel greyscale so coloured chords stay dark), read twice (Myanmar+English for lyrics, sparse English for chords/labels), and `lib/cms/ocr-free.mjs` rebuilds ChordPro: chord rows are placed above the lyric row by x position, `V1/Cho/Pre/Intro/Solo` become sections, `တေးဆို - X` becomes the artist, side watermarks and channel credits are dropped. Low-confidence words get `⟦?⟧`; letters read as chords (`6`→G, `င`→C) are listed in review notes. Small/blurred images lose some chord rows — check against the source image.
+
+**Optional higher accuracy:** add `ANTHROPIC_API_KEY` as a **secret** in Sites environment settings and deploy; the server route then uses Claude instead (paid per image; `OCR_MODEL` overrides the model). The key never reaches the browser.
+
+**Artist check:** under the artist field the editor shows whether the name already exists (✓ same artist, song count), merged aliases, and similar names (spacing variants and known Myanmar↔English pairs from `lib/cms/artist-romanized.mjs`). "ဒီနာမည်သုံးမယ်" switches the credit; "Merge" (after a preview confirm) groups two existing credits. Nothing merges automatically.
 
 ## Artist aliases / အဆိုတော်နာမည်ပေါင်းခြင်း
 

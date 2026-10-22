@@ -1,0 +1,14 @@
+'use client';
+import {useEffect,useState} from 'react';
+type Match={name:string;songs:number;kind:'same'|'alias'|'similar';input:string;artist:string|null};
+// Shows existing artists that match the typed (or OCR'd) name, so a new song lands under the right artist.
+export default function ArtistCheck({name,onUse}:{name:string;onUse:(name:string)=>void}){
+ const [matches,setMatches]=useState<Match[]>([]),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[refresh,setRefresh]=useState(0);
+ useEffect(()=>{setMessage('');const q=name.replace(/⟦\?⟧/g,'').trim();if(q.length<2){setMatches([]);return}const abort=new AbortController();const timer=setTimeout(()=>fetch('/api/admin/artists?similar='+encodeURIComponent(q),{signal:abort.signal}).then(r=>r.json()).then((d:any)=>setMatches(d.matches||[])).catch(()=>{}),300);return()=>{clearTimeout(timer);abort.abort()}},[name,refresh]);
+ async function merge(input:string,other:Match){if(busy)return;setBusy(true);setMessage('');try{const post=(body:unknown)=>fetch('/api/admin/artists',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(async r=>{const d:any=await r.json();if(!r.ok)throw new Error(d.error||'Request failed.');return d});const names=[input,other.name];const preview=await post({action:'preview',names});if(!window.confirm(`"${input}" နှင့် "${other.name}" ကို အဆိုတော်တစ်ယောက်တည်းအဖြစ် ပေါင်းမလား?\n${preview.count} သီချင်း တစ်နေရာတည်းမှာ ပေါ်ပါမယ်။ (နောက်မှ /admin/artists မှာ Unmerge လုပ်လို့ရပါတယ်)`))return;await post({action:'merge',names,name:other.songs>=matches.find(m=>m.kind==='same')!.songs?other.name:input});setMessage('ပေါင်းပြီးပါပြီ။');setRefresh(n=>n+1)}catch(e:any){setMessage(e.message)}finally{setBusy(false)}}
+ if(name.replace(/⟦\?⟧/g,'').trim().length<2)return null;const same=matches.find(m=>m.kind==='same');const others=matches.filter(m=>m.kind!=='same');
+ return <div className="artist-check" role="status">
+  {same?<p><strong>✓ ရှိပြီးသား အဆိုတော်</strong> — "{same.name}" ({same.songs} သီချင်း{same.artist&&same.artist!==same.name?` · ${same.artist} အုပ်စု`:''})။ ဒီသီချင်းက အဲ့ဒီအဆိုတော်အောက် ဝင်ပါမယ်။</p>:<p><strong>အဆိုတော်အသစ်</strong> — "{name}" နာမည်နဲ့ သီချင်းမရှိသေးပါ။{others.length?' နာမည်ဆင်တူတွေ ရှိပါတယ် — တူရင် ရွေးပါ။':''}</p>}
+  {others.length>0&&<ul>{others.map(m=><li key={m.name}><span>{m.name}</span><small>{m.songs} သီချင်း · {m.kind==='alias'?'ပေါင်းပြီးသား နာမည်':'ဆင်တူ'}</small>{m.kind==='similar'&&<button type="button" onClick={()=>onUse(m.name)}>ဒီနာမည်သုံးမယ်</button>}{m.kind==='similar'&&same&&<button type="button" disabled={busy} onClick={()=>merge(same.name,m)}>Merge</button>}</li>)}</ul>}
+  {others.length>0&&<small>မြန်မာ/English နာမည်တွဲတွေကို <a href="/admin/artists" target="_blank" rel="noreferrer">/admin/artists</a> မှာလည်း ပေါင်းလို့ရပါတယ်။</small>}
+  {message&&<p className="editor-notice">{message}</p>}</div>}

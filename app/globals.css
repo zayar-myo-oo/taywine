@@ -55,3 +55,7 @@
 .artist-groups li{display:flex;gap:10px;align-items:center;padding:4px 0;font-size:13px;flex-wrap:wrap}
 .artist-groups li span{flex:1}
 .artist-groups li button{font:inherit;font-size:12px;background:none;border:0;text-decoration:underline;cursor:pointer}
+.artist-check{margin:10px 0 4px;padding:10px 12px;border:1px solid var(--line,#ddd);border-radius:10px;background:color-mix(in srgb,currentColor 4%,transparent);font-size:.88rem}
+.artist-check p{margin:0 0 6px}.artist-check ul{list-style:none;margin:6px 0;padding:0;display:grid;gap:6px}
+.artist-check li{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.artist-check li span{font-weight:600}.artist-check li small{opacity:.7}
+.artist-check button{font:inherit;font-size:.8rem;padding:3px 10px;border-radius:999px;border:1px solid currentColor;background:none;cursor:pointer}
