@@ -89,3 +89,21 @@ button,a,select,input,label,[data-song],[data-artist]{touch-action:manipulation}
 @media(min-width:601px){body.sidebar-collapsed{--sidebar:0px}body.sidebar-collapsed .sidebar{display:none}body.sidebar-collapsed .app-shell{margin-left:0}}
 @media(max-width:600px){#sidebar-toggle{display:none}}
 @media print{#sidebar-toggle{display:none!important}}
+/* Compact floating play bar: small centered pill, one row on every width. Song cards open the reader; no inline play button. */
+#reader-view .reader-tools{left:calc(var(--sidebar) + 30px);right:30px;bottom:14px;width:fit-content;max-width:calc(100% - 24px);padding:6px 10px;border-radius:12px;box-shadow:0 4px 18px #0002}
+#reader-view{padding-bottom:90px}
+#reader-view .reader-compact-main{gap:14px;flex-wrap:nowrap}
+#reader-view .compact-transpose{min-width:0;flex-wrap:nowrap;gap:4px}
+#reader-view .compact-transpose>label{display:none}
+#reader-view .compact-transpose>button{width:28px;height:28px;font-size:15px;border-radius:7px}
+#reader-view .compact-transpose #current-key{font-size:13px;min-width:24px}
+#reader-view .reader-compact-main .scroll-control{flex:0 0 auto}
+#reader-view .reader-compact-main .scroll-control-main{grid-template-columns:30px 50px 110px;gap:6px}
+#reader-view .reader-compact-main #scroll-toggle{width:30px;min-width:30px;height:30px;min-height:30px;font-size:14px;border-radius:7px;grid-row:auto}
+#reader-view .reader-compact-main .scroll-speed-input{grid-column:auto;grid-row:auto;justify-self:start;padding:0;border:0;background:none}
+#reader-view .reader-compact-main .scroll-slider-wrap{grid-column:auto;grid-row:auto}
+#reader-view .reader-compact-main #scroll-speed{width:34px;font-size:12px}
+#scroll-range::-webkit-slider-thumb{width:13px;height:13px;margin-top:-4px;border-width:2px}
+#scroll-range::-moz-range-thumb{width:9px;height:9px;border-width:2px}
+.pick-listen{display:none!important}
+@media(max-width:600px){#reader-view .reader-tools{left:50%;right:auto;transform:translateX(-50%);bottom:72px;padding:5px 8px}#reader-view{padding-bottom:130px}body.focus-mode #reader-view .reader-tools{left:50%;right:auto;bottom:10px}#reader-view .reader-compact-main{gap:10px}#reader-view .reader-compact-main .scroll-control-main{grid-template-columns:30px 44px 80px;gap:5px}}
