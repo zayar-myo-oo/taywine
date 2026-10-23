@@ -10,3 +10,23 @@
 .brand-symbol{font-size:35px;letter-spacing:-2.4px}.footer-logo{letter-spacing:-1.2px}.mobile-brand{letter-spacing:-1.7px}
 @media(max-width:850px) and (min-width:601px){.brand-symbol{font-size:15px;letter-spacing:-.9px}}
 @media(max-width:600px){.mobile-brand{font-size:25px}}
+
+/* Slow, decorative motion for the acoustic corner. Keep the record centered
+   at every breakpoint, including the cropped mobile composition. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-art .record { animation: acoustic-record-spin 36s linear infinite; }
+  .hero-art .art-star { animation: acoustic-star-float 6s ease-in-out infinite; }
+  .hero-art .art-ticket { animation: acoustic-ticket-sway 7s ease-in-out infinite; }
+}
+@keyframes acoustic-record-spin {
+  from { transform: translate(-50%, -50%) rotate(-19deg); }
+  to { transform: translate(-50%, -50%) rotate(341deg); }
+}
+@keyframes acoustic-star-float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-6px) rotate(4deg); }
+}
+@keyframes acoustic-ticket-sway {
+  0%, 100% { transform: translateY(0) rotate(9deg); }
+  50% { transform: translateY(-4px) rotate(5deg); }
+}
