@@ -158,5 +158,554 @@
   "image": "https://cdn-images.dzcdn.net/images/artist/6716a7cf0b813c42e32d792f05fbef11/250x250-000000-80-0-0.jpg",
   "source": "deezer",
   "deezer_id": 11437366
+ },
+ "shwe htoo": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/9a908cbb92a6a6d2d129729101e641c8/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12047040
+ },
+ "hlwan moe": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/b05dedb0a70d5ae113c8daaf63fcd7ec/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 78509362
+ },
+ "ah nge": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/0c80643b2c6dc9b94610929107da7244/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12409224
+ },
+ "myo gyi": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/b7dcb4ca6addfe07537ac40515a752d7/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 5342632
+ },
+ "zaw win htut": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/ac6ea87561baf6bf51ff965053f130f1/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 11933311
+ },
+ "khine htoo": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/9bf41482aa9a91fe09a0039a1cc1feab/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 4590504
+ },
+ "zaw paing": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/bea86ef47ca0d4e1eb1c6ee5fdb0b7e3/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12047020
+ },
+ "wyne su khaing thein": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/f762b1ab209e36b368078f917e810286/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 54861302
+ },
+ "soe lwin lwin": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/e217e549117cecc11675603c65aad100/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 13885285
+ },
+ "kaizar": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/170ad8e2a43da1cf7c0453767743c1a0/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 2639361
+ },
+ "phoe kar": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/0d0905b735f729237cacece7d2d7e667/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 13617405
+ },
+ "g latt": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/f6930b4b6e3e0a5ba83dcb7cbd82caa1/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12193096
+ },
+ "bo phyu": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/f2a576a00ac7801efee751dd17d38749/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 13802189
+ },
+ "thar dee lu": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/7dc3f028e2f10a948e42cb72b1ed0543/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 14803429
+ },
+ "y wine": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/9db1fe71df8086771b41d92754d21b6a/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12409222
+ },
+ "r zar ni": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/37c60af5f8e385ba29e2e1123c3fa52e/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12409220
+ },
+ "phyo pyae sone": {
+  "image": "https://cdn-images.dzcdn.net/images/artist/59264254d21283bf6726886beebc031a/250x250-000000-80-0-0.jpg",
+  "source": "deezer",
+  "deezer_id": 12457960
+ },
+ "bunny phyoe": {
+  "image": "/artist-photos/deezer-11415244.jpg",
+  "source": "deezer",
+  "deezer_id": 11415244
+ },
+ "ဘန်နီဖြိုး": {
+  "image": "/artist-photos/deezer-11415244.jpg",
+  "source": "deezer",
+  "deezer_id": 11415244
+ },
+ "ဒိုးလုံး": {
+  "image": "/artist-photos/deezer-59449412.jpg",
+  "source": "deezer",
+  "deezer_id": 59449412
+ },
+ "doe lone": {
+  "image": "/artist-photos/deezer-59449412.jpg",
+  "source": "deezer",
+  "deezer_id": 59449412
+ },
+ "ခင်မောင်တိုး": {
+  "image": "/artist-photos/KhinMgToe-2-170418.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=2"
+ },
+ "khin maung toe": {
+  "image": "/artist-photos/KhinMgToe-2-170418.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=2"
+ },
+ "လေးဖြူ": {
+  "image": "/artist-photos/LayPhyu-4-100434.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=4"
+ },
+ "lay phyu": {
+  "image": "/artist-photos/LayPhyu-4-100434.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=4"
+ },
+ "ဝေလ": {
+  "image": "/artist-photos/WaiLa-573-170445.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=573"
+ },
+ "wai la": {
+  "image": "/artist-photos/WaiLa-573-170445.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=573"
+ },
+ "အဲလက်စ်": {
+  "image": "/artist-photos/Alex-11-030427.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=11"
+ },
+ "alex": {
+  "image": "/artist-photos/Alex-11-030427.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=11"
+ },
+ "အရိုး": {
+  "image": "/artist-photos/AYoe-381-190431.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=381"
+ },
+ "a yoe": {
+  "image": "/artist-photos/AYoe-381-190431.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=381"
+ },
+ "အောင်လ": {
+  "image": "/artist-photos/aung-la-profile.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=434"
+ },
+ "aung la": {
+  "image": "/artist-photos/aung-la-profile.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=434"
+ },
+ "ဟေမာနေဝင်း": {
+  "image": "/artist-photos/HaymarNayWin-123-000415.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=123"
+ },
+ "hayma ne win": {
+  "image": "/artist-photos/HaymarNayWin-123-000415.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=123"
+ },
+ "haymar nay win": {
+  "image": "/artist-photos/HaymarNayWin-123-000415.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=123"
+ },
+ "မျိုးကျော့မြိုင်": {
+  "image": "/artist-photos/MyoKyawtMyaing-46-210446.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=46"
+ },
+ "myo kyawt myaing": {
+  "image": "/artist-photos/MyoKyawtMyaing-46-210446.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=46"
+ },
+ "ဂျေမောင်မောင်": {
+  "image": "/artist-photos/JMgMg-212-170423.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=212"
+ },
+ "j mg mg": {
+  "image": "/artist-photos/JMgMg-212-170423.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=212"
+ },
+ "j maung maung": {
+  "image": "/artist-photos/JMgMg-212-170423.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=212"
+ },
+ "ဆောင်းဦးလှိုင်": {
+  "image": "/artist-photos/SaungOoHlaing-21-220427.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=21"
+ },
+ "saung oo hlaing": {
+  "image": "/artist-photos/SaungOoHlaing-21-220427.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=21"
+ },
+ "နီနီခင်ဇော်": {
+  "image": "/artist-photos/NiNiKhinZaw-420-090443.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=420"
+ },
+ "ni ni khin zaw": {
+  "image": "/artist-photos/NiNiKhinZaw-420-090443.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=420"
+ },
+ "မိုးမိုး": {
+  "image": "/artist-photos/MoeMoe-112-230409.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=112"
+ },
+ "moe moe": {
+  "image": "/artist-photos/MoeMoe-112-230409.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=112"
+ },
+ "တင်ဇာမော်": {
+  "image": "/artist-photos/TinZarMaw-54-110444.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=54"
+ },
+ "tin zar maw": {
+  "image": "/artist-photos/TinZarMaw-54-110444.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=54"
+ },
+ "ဂျေညီညီ": {
+  "image": "/artist-photos/JNyiNyi-41-170438.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=41"
+ },
+ "j nyi nyi": {
+  "image": "/artist-photos/JNyiNyi-41-170438.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=41"
+ },
+ "အိုင်ရင်းဇင်မာမြင့်": {
+  "image": "/artist-photos/IreneZinMarMyint-553-000401.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=553"
+ },
+ "irene zin mar myint": {
+  "image": "/artist-photos/IreneZinMarMyint-553-000401.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=553"
+ },
+ "ချစ်သုဝေ": {
+  "image": "/artist-photos/ChithuWai-81-000429.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=81"
+ },
+ "chit thu wai": {
+  "image": "/artist-photos/ChithuWai-81-000429.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=81"
+ },
+ "ကောင်းကောင်း": {
+  "image": "/artist-photos/KaungKaung-495-080410.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=495"
+ },
+ "kaung kaung": {
+  "image": "/artist-photos/KaungKaung-495-080410.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=495"
+ },
+ "ဝေကြီး": {
+  "image": "/artist-photos/WaiGyi-622-010439.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=622"
+ },
+ "wai gyi": {
+  "image": "/artist-photos/WaiGyi-622-010439.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=622"
+ },
+ "ဖြိုးမြတ်အောင်": {
+  "image": "/artist-photos/PhyoMyatAung-625-210419.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=625"
+ },
+ "phyo myat aung": {
+  "image": "/artist-photos/PhyoMyatAung-625-210419.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=625"
+ },
+ "ကျားပေါက်": {
+  "image": "/artist-photos/BigBag-16-130722.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=16"
+ },
+ "အိမ့်ချစ်": {
+  "image": "/artist-photos/EintChit-405-060424.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=405"
+ },
+ "eint chit": {
+  "image": "/artist-photos/EintChit-405-060424.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=405"
+ },
+ "ညီမင်းခိုင်": {
+  "image": "/artist-photos/NyiMinKhine-540-070420.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=540"
+ },
+ "nyi min khine": {
+  "image": "/artist-photos/NyiMinKhine-540-070420.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=540"
+ },
+ "အာဇာနည်": {
+  "image": "/artist-photos/RZarni-8-020439.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=8"
+ },
+ "yoon myat thu": {
+  "image": "/artist-photos/YoonMyatThu-619-210418.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=619"
+ },
+ "htet yan": {
+  "image": "/artist-photos/HtetYan-686-200441.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=686"
+ },
+ "ထက်ယံ": {
+  "image": "/artist-photos/HtetYan-686-200441.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=686"
+ },
+ "ဖြိုးကျော်ထိုက်": {
+  "image": "/artist-photos/PhyoKyawHtike-427-190426.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=427"
+ },
+ "phyo kyaw htike": {
+  "image": "/artist-photos/PhyoKyawHtike-427-190426.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=427"
+ },
+ "ye lay": {
+  "image": "/artist-photos/YeLay-157-230413.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=157"
+ },
+ "ရဲလေး": {
+  "image": "/artist-photos/YeLay-157-230413.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=157"
+ },
+ "mary": {
+  "image": "/artist-photos/Mary-626-210422.jpg",
+  "source": "http://www.myitzuri.com/profile-view.php?artist_id=626"
+ },
+ "လင်းလင်း": {
+  "image": "/artist-photos/lynn-lynn.jpg",
+  "source": "https://m.soundcloud.com/rocker-iris/lynn-lynn-ah-chit-yae-ya-lat"
+ },
+ "lynn lynn": {
+  "image": "/artist-photos/lynn-lynn.jpg",
+  "source": "https://m.soundcloud.com/rocker-iris/lynn-lynn-ah-chit-yae-ya-lat"
+ },
+ "lin lin": {
+  "image": "/artist-photos/lynn-lynn.jpg",
+  "source": "https://m.soundcloud.com/rocker-iris/lynn-lynn-ah-chit-yae-ya-lat"
+ },
+ "the zero": {
+  "image": "/artist-photos/the-zero.jpg",
+  "source": "https://open.spotify.com/artist/01ZNwLYso4QNWIiovKkimq"
+ },
+ "wanted": {
+  "image": "/artist-photos/wanted.jpg",
+  "source": "https://open.spotify.com/artist/1pMV9AQ4RDndrJlxjgJy71"
+ },
+ "တူးတူး": {
+  "image": "/artist-photos/tu-tu.jpg",
+  "source": "https://blog.moemaka.com/2014/01/blog-post_3791.html"
+ },
+ "tu tu": {
+  "image": "/artist-photos/tu-tu.jpg",
+  "source": "https://blog.moemaka.com/2014/01/blog-post_3791.html"
+ },
+ "too too": {
+  "image": "/artist-photos/tu-tu.jpg",
+  "source": "https://blog.moemaka.com/2014/01/blog-post_3791.html"
+ },
+ "ထွန်းအိန္ဒြာဗို": {
+  "image": "/artist-photos/tun-eindra-bo.jpg",
+  "source": "https://soundcloud.com/joe3591416/sets/h1aodplf4b3m"
+ },
+ "tun eindra bo": {
+  "image": "/artist-photos/tun-eindra-bo.jpg",
+  "source": "https://soundcloud.com/joe3591416/sets/h1aodplf4b3m"
+ },
+ "htun eaindra bo": {
+  "image": "/artist-photos/tun-eindra-bo.jpg",
+  "source": "https://soundcloud.com/joe3591416/sets/h1aodplf4b3m"
+ },
+ "ကော်နီ": {
+  "image": "/artist-photos/connie.jpg",
+  "source": "https://burma.irrawaddy.com/lifestyle/entertainment/2021/01/19/236681.html"
+ },
+ "connie": {
+  "image": "/artist-photos/connie.jpg",
+  "source": "https://burma.irrawaddy.com/lifestyle/entertainment/2021/01/19/236681.html"
+ },
+ "ထူးအယ်လင်း": {
+  "image": "/artist-photos/htoo-el-lynn.jpg",
+  "source": "https://www.last.fm/music/Htoo+L+Lin/+wiki"
+ },
+ "htoo el lynn": {
+  "image": "/artist-photos/htoo-el-lynn.jpg",
+  "source": "https://www.last.fm/music/Htoo+L+Lin/+wiki"
+ },
+ "htoo el lin": {
+  "image": "/artist-photos/htoo-el-lynn.jpg",
+  "source": "https://www.last.fm/music/Htoo+L+Lin/+wiki"
+ },
+ "ဖြူဖြူကျော်သိန်း": {
+  "image": "/artist-photos/phyu-phyu-kyaw-thein.jpg",
+  "source": "https://www.joox.com/mm/artist/Q9acxqSsvW+oF84lt6lPhA=="
+ },
+ "phyu phyu kyaw thein": {
+  "image": "/artist-photos/phyu-phyu-kyaw-thein.jpg",
+  "source": "https://www.joox.com/mm/artist/Q9acxqSsvW+oF84lt6lPhA=="
+ },
+ "l ဆိုင်းဇီ": {
+  "image": "/artist-photos/l-seng-zi.jpg",
+  "source": "https://www.joox.com/mm/artist/LpxdA9P3MsINcqhTLlthPg=="
+ },
+ "l seng zi": {
+  "image": "/artist-photos/l-seng-zi.jpg",
+  "source": "https://www.joox.com/mm/artist/LpxdA9P3MsINcqhTLlthPg=="
+ },
+ "အေသင်ချိုဆွေ": {
+  "image": "/artist-photos/athen-cho-swe.jpg",
+  "source": "https://www.joox.com/mm/artist/Wh2ioYo5j4cAwtEULjrQVw=="
+ },
+ "athen cho swe": {
+  "image": "/artist-photos/athen-cho-swe.jpg",
+  "source": "https://www.joox.com/mm/artist/Wh2ioYo5j4cAwtEULjrQVw=="
+ },
+ "ရတနာမိုင်": {
+  "image": "/artist-photos/yadanar-my.jpg",
+  "source": "https://www.joox.com/mm/artist/99y8MM3dx9SUGEVcwtyl7Q=="
+ },
+ "yadanar my": {
+  "image": "/artist-photos/yadanar-my.jpg",
+  "source": "https://www.joox.com/mm/artist/99y8MM3dx9SUGEVcwtyl7Q=="
+ },
+ "အမွန်း": {
+  "image": "/artist-photos/ah-moon.jpg",
+  "source": "https://www.joox.com/mm/artist/wno4GYvkamrAhEEuHrzHtw=="
+ },
+ "ah moon": {
+  "image": "/artist-photos/ah-moon.jpg",
+  "source": "https://www.joox.com/mm/artist/wno4GYvkamrAhEEuHrzHtw=="
+ },
+ "ဒဲရစ်မေလာ": {
+  "image": "/artist-photos/derrick-maylar.jpg",
+  "source": "https://www.facebook.com/100069690280070"
+ },
+ "derrick maylar": {
+  "image": "/artist-photos/derrick-maylar.jpg",
+  "source": "https://www.facebook.com/100069690280070"
+ },
+ "မာရဇ္ဇ": {
+  "image": "/artist-photos/marizza.jpg",
+  "source": "https://www.facebook.com/SithoTowardsMedia"
+ },
+ "marizza": {
+  "image": "/artist-photos/marizza.jpg",
+  "source": "https://www.facebook.com/SithoTowardsMedia"
+ },
+ "marriza": {
+  "image": "/artist-photos/marizza.jpg",
+  "source": "https://www.facebook.com/SithoTowardsMedia"
+ },
+ "ဂရေဟမ်": {
+  "image": "/artist-photos/graham.jpg",
+  "source": "https://www.facebook.com/MyanmarCelebrity"
+ },
+ "graham": {
+  "image": "/artist-photos/graham.jpg",
+  "source": "https://www.facebook.com/MyanmarCelebrity"
+ },
+ "the marionette": {
+  "image": "/artist-photos/the-marionette.jpg",
+  "source": "https://www.facebook.com/musiccrazyloudspeaker"
+ },
+ "ဖိုးချို": {
+  "image": "/artist-photos/phoe-cho.jpg",
+  "source": "https://www.facebook.com/lwinooyankin"
+ },
+ "phoe cho": {
+  "image": "/artist-photos/phoe-cho.jpg",
+  "source": "https://www.facebook.com/lwinooyankin"
+ },
+ "ပူစူး": {
+  "image": "/artist-photos/pu-sue.jpg",
+  "source": "https://www.myanmarcelebrity.com/2023/08/blog-post_626.html"
+ },
+ "pu sue": {
+  "image": "/artist-photos/pu-sue.jpg",
+  "source": "https://www.myanmarcelebrity.com/2023/08/blog-post_626.html"
+ },
+ "the ants": {
+  "image": "/artist-photos/the-ants.jpg",
+  "source": "https://open.spotify.com/track/7CVHmMzoN4UzWETnWlMsXb"
+ },
+ "ဟန်ထွန်း": {
+  "image": "/artist-photos/han-htun.jpg",
+  "source": "Google Images / Myanmar Celebrity"
+ },
+ "han tun": {
+  "image": "/artist-photos/han-htun.jpg",
+  "source": "Google Images / Myanmar Celebrity"
+ },
+ "han htun": {
+  "image": "/artist-photos/han-htun.jpg",
+  "source": "Google Images / Myanmar Celebrity"
+ },
+ "အောင်ထက်": {
+  "image": "/artist-photos/aung-htet.jpg",
+  "source": "https://burmese.dvb.no/tags/အောင်ထက်"
+ },
+ "aung htet": {
+  "image": "/artist-photos/aung-htet.jpg",
+  "source": "https://burmese.dvb.no/tags/အောင်ထက်"
+ },
+ "စိုးပိုင်": {
+  "image": "/artist-photos/soe-paing.jpg",
+  "source": "https://www.myanmarcelebrity.com/2022/05/blog-post_40.html"
+ },
+ "soe paing": {
+  "image": "/artist-photos/soe-paing.jpg",
+  "source": "https://www.myanmarcelebrity.com/2022/05/blog-post_40.html"
+ },
+ "ဗလ": {
+  "image": "/artist-photos/ba-la.jpg",
+  "source": "https://www.facebook.com/musiccrazyloudspeaker"
+ },
+ "ba la": {
+  "image": "/artist-photos/ba-la.jpg",
+  "source": "https://www.facebook.com/musiccrazyloudspeaker"
+ },
+ "မွန်းအောင်": {
+  "image": "/artist-photos/mun-awng.jpg",
+  "source": "https://my.wikipedia.org/wiki/မွန်းအောင်"
+ },
+ "mun awng": {
+  "image": "/artist-photos/mun-awng.jpg",
+  "source": "https://my.wikipedia.org/wiki/မွန်းအောင်"
+ },
+ "mun aung": {
+  "image": "/artist-photos/mun-awng.jpg",
+  "source": "https://my.wikipedia.org/wiki/မွန်းအောင်"
+ },
+ "ဗဒင်": {
+  "image": "/artist-photos/ba-din.jpg",
+  "source": "https://my.wikipedia.org/wiki/ဗဒင်"
+ },
+ "ba din": {
+  "image": "/artist-photos/ba-din.jpg",
+  "source": "https://my.wikipedia.org/wiki/ဗဒင်"
+ },
+ "နေမင်းအိမ်": {
+  "image": "/artist-photos/nay-min-eain.jpg",
+  "source": "https://www.instagram.com/p/DQwIBDjk7TL/"
+ },
+ "nay min eain": {
+  "image": "/artist-photos/nay-min-eain.jpg",
+  "source": "https://www.instagram.com/p/DQwIBDjk7TL/"
+ },
+ "မနော": {
+  "image": "/artist-photos/manaw.jpg",
+  "source": "https://mmload.com/article/105493"
+ },
+ "manaw": {
+  "image": "/artist-photos/manaw.jpg",
+  "source": "https://mmload.com/article/105493"
  }
 }
